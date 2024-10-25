@@ -1,5 +1,5 @@
 # Team Name
-Childcare Cost Across Time
+Childcare Cost Exploration Map
 ### Team Members
 Zach Newton
 ### Final Proposal
