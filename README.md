@@ -10,4 +10,4 @@ Zach Newton
 Last Updated: 10/24/2024
 
 ### **Description:**
-This interactive map built in JS/Leaflet will display the inceasing childcare cost from 2008-2018.
+This interactive map built in JS/Leaflet will display the increasing childcare cost from 2008-2018.

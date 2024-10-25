@@ -1,7 +1,7 @@
 # Team Name
 Childcare Cost Exploration Map
 ### Team Members
-Zach Newton
+1. Zach Newton
 ### Final Proposal
 1. Persona/Scenario
     1. Persona
