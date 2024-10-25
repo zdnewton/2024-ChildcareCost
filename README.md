@@ -1,7 +1,7 @@
 ### **Title:** *Child Care Cost by County*
 
-### **Author:** 
-Zach Newton
+### **Temamates:** 
+1. Zach Newton
 
 ### **Dependencies:**
 * [Leaflet 1.6](https://leafletjs.com/reference-1.6.0.html)
