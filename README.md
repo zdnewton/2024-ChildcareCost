@@ -2,6 +2,7 @@
 
 ### **Temamates:** 
 1. Zach Newton
+2. Justin Sena
 
 ### **Dependencies:**
 * [Leaflet 1.6](https://leafletjs.com/reference-1.6.0.html)
