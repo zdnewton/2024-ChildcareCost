@@ -1,3 +1,5 @@
+html {background-color: #e0d5f5}  /* changes entire pages background*/
+
 .title {
     font-family: sans-serif;
     font-size: 1.5em;
@@ -5,9 +7,14 @@
 }
 
 .countries {
-    fill: #cbc7d4;
+    fill: #e6e5e9;
     stroke:#999;
     stroke-width: 2;
+}
+.States {
+    fill: none;
+    stroke: black;
+    stroke-width: 1;
 }
 .gratLines {
     fill: none;
@@ -15,7 +22,7 @@
     stroke-width: 1px;
 }
 .gratBackground {
-    fill: #8ab0fa;
+    fill: #c5aaf8;
 }
 .map {
     border: medium solid #999;
@@ -60,8 +67,8 @@
 
 .axis text {
     font-family: sans-serif;
-    font-size: 0.8em;
-    fill: #999;
+    font-size: 1.2em;
+    fill: #000000;
 }
 .dropdown {
     position: absolute;
@@ -82,8 +89,8 @@ option {
 
 .infolabel {
     position: absolute;
-    height: 50px;
-    min-width: 100px;
+    min-height: 10px;
+    min-width: 50px;
     color: #fff;
     background-color: #000;
     border: solid thin #fff;

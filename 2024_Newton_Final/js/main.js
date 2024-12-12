@@ -1,12 +1,12 @@
 (function(){
    //pseudo-global variables
-   var attrArray = ["Infant Center", "Infant Home", "Toddler Center", "Toddler Home","Pre School Center","Pre School Home", "School Age Center", "School Age Home"]; //list of attributes
-   var expressed = attrArray[3]; //initial attribute
+   var attrArray = ["Infant Center", "Infant Home", "Toddler Center", "Toddler Home","PreSchool Center","PreSchool Home", "School Age Center", "School Age Home"]; //list of attributes
+   var expressed = attrArray[0]; //initial attribute
    var domainArray = [];
    //console.log(expressed)
    
     //chart frame dimensions
-    var chartWidth = window.innerWidth * 0.425,
+    var chartWidth = window.innerWidth * 0.45,
     chartHeight = 473,
     leftPadding = 25,
     rightPadding = 2,
@@ -18,7 +18,7 @@
     //create a scale to size bars proportionally to frame and for axis
     var yScale = d3.scaleLinear()
     .range([463, 0])
-    .domain([0, 100]);
+    .domain([0, 40]);
 
 //begin script when window loads
 window.onload = setMap();
@@ -56,7 +56,8 @@ function setMap() {
     promises.push(d3.csv("data/ChildcarePrices2018.csv"));
     promises.push(d3.csv("data/ChildcarePrices2023.csv"));
     promises.push(d3.json("data/Counties.topojson"));
-    promises.push(d3.json("data/Countries.topojson")); //load background spatial data 
+    promises.push(d3.json("data/Countries.topojson")); //load background spatial data
+    promises.push(d3.json("data/States.topojson"));
     Promise.all(promises).then(callback);
 
     function callback(data) {
@@ -64,9 +65,11 @@ function setMap() {
             csv2023Data = data[1],
             Counties = data[2],
             Countries = data[3];
+            States = data[4];
 
         var usCounties = topojson.feature(Counties, Counties.objects.Counties).features;
         var CountriesTopo = topojson.feature(Countries, Countries.objects.Countries);
+        var StatesTopo = topojson.feature(States, States.objects.States)
 
         //place graticule on the map
         setGraticule(g, path);
@@ -78,17 +81,22 @@ function setMap() {
             .attr("d", path);
 
         //join csv data to GeoJSON enumeration units
-        var counties = joinData(usCounties, csv2018Data);
+        var counties = joinData(usCounties, csv2023Data);
 
         //create the color scale
         var colorScale = makeColorScale(csv2023Data);
 
         //add enumeration units to the map
         setEnumerationUnits(counties, g, path, colorScale, svg, zoom, width, height);
+        
+        var states = g.append("path")
+        .datum(StatesTopo)
+        .attr("class", "States")
+        .attr("d", path);
 
         //add coordinated visualization
         setChart(csv2023Data, colorScale);
-
+        
         createDropdown(csv2023Data);
     };
 
@@ -98,8 +106,6 @@ function setMap() {
         g.attr("transform", transform);
         g.attr("stroke-width", 1 / transform.k);
     };
-
-
 
     //Add the home button
     addHomeButton(svg, zoom);    
@@ -156,8 +162,7 @@ function joinData(counties,csv){
     //loop through csv to assign each set of csv attribute values to geojson region
     for (var i=0; i<csv.length; i++){ //csv.length
         var csvCounty = csv[i]; //the current region
-        //console.log(csvCounty)
-        var csvKey = csvCounty.FIPS; //the CSV primary key
+        var csvKey = csvCounty.FIPS2; //the CSV primary key
         //console.log(csvKey)
         //loop through geojson regions to find correct region
         for (var a=0; a<counties.length; a++){
@@ -216,23 +221,38 @@ function setEnumerationUnits(usCounties, map, path, colorScale, svg, zoom, width
 //function to create color scale generator
 function makeColorScale(data){
     var colorClasses = [
-        "#f2f0f7",
-        "#cbc9e2",
-        "#9e9ac8",
-        "#756bb1",
-        "#54278f"
+        "#f1eef6",
+        "#d7b5d8",
+        "#df65b0",
+        "#dd1c77",
+        "#980043"
     ];
 
     //create color scale generator
-    var colorScale = d3.scaleQuantile()
-        .range(colorClasses);
-    //build array of all values of the expressed attribute
+    var colorScale = d3.scaleThreshold()
+    .range(colorClasses);
 
+    //build array of all values of the expressed attribute
+    var domainArray = [];
     for (var i=0; i<data.length; i++){
-        var val = parseFloat(data[i][expressed]);
+    var val = parseFloat(data[i][expressed]);
+    
+    //removes 0 or no data values before calculating the breaks
+    if (val == 0){
+    } else {
         domainArray.push(val);
-        //console.log(val)
+    }
     };
+
+    //cluster data using ckmeans clustering algorithm to create natural breaks
+    var clusters = ss.ckmeans(domainArray, 5);
+    //reset domain array to cluster minimums
+    domainArray = clusters.map(function(d){
+    return d3.min(d);
+    });
+    //remove first value from domain array to create class breakpoints
+    domainArray.shift();
+
     //assign array of expressed values as scale domain
     colorScale.domain(domainArray);
     //console.log(colorScale)
@@ -332,9 +352,8 @@ function createDropdown(csv){
         .text("Select Attribute");
 
     //add attribute name options
-    var newAttrArray = attrArray.slice(3)
     var attrOptions = dropdown.selectAll("attrOptions")
-        .data(newAttrArray)
+        .data(attrArray)
         .enter()
         .append("option")
         .attr("value", function(d){ return d })
@@ -421,11 +440,11 @@ var chartTitle = d3.select(".chartTitle")
 //function to highlight enumeration units and bars
 function highlight(props){
     //change stroke
-    //console.log(props)
     var selected = d3.selectAll("." + props.FIPS2)
         .style("stroke", "yellow")
         .style("stroke-width", "2");
     setLabel(props)
+    //console.log(props)
 };
 
 //function to reset the element style on mouseout
@@ -438,9 +457,12 @@ function dehighlight(props){
 function setLabel(props){
     //label content
     //console.log(props)
-    var labelAttribute = "<h1>" + props[expressed] +
-        "%</h1><b>" + "of Median Income" + "</b><br>" + props.county +", " + props.STATE + "</br>"
-
+    if ((props[expressed]) == 0) {
+        var labelAttribute ="No Data"
+    } else {
+    var labelAttribute = "<b>" + props[expressed] +
+        "%</b> of Median Income" + "<br>" + props.county +", " + props.STATE + "</br>"
+    };
     //create info label div
     var infolabel = d3.select("body")
         .append("div")
@@ -476,7 +498,6 @@ function moveLabel(event){
         .style("left", x + "px")
         .style("top", y + "px");
 };
-//I am here for reworking my Lab 2 as the basis!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // Function to handle clicking on a county
 function clicked(event, d, map, path, zoom, width, height) {
