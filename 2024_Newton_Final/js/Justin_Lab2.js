@@ -122,7 +122,7 @@
                 zoom.transform,
                 d3.zoomIdentity
             );
-        }
+        };
     };
     
     //joins CSV data to the topojson.

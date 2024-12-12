@@ -96,3 +96,19 @@ option {
     display: inline-block;
     line-height: 1em;
 }
+
+
+/* Styles for the home button */
+.home-button rect {
+    fill: #fff;
+    stroke: #000;
+    stroke-width: 1;
+    rx: 5; /* rounded corners */
+    ry: 5;
+}
+
+.home-button text {
+    font-size: 14px;
+    fill: #000;
+    text-anchor: middle;
+}

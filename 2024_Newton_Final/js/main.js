@@ -1,6 +1,6 @@
 (function(){
    //pseudo-global variables
-   var attrArray = ["State Name","County Name","FIPS","Infant Center", "Infant Home", "Toddler Center", "Toddler Home","Pre School Center","Pre School Home", "School Age Center", "School Age Home"]; //list of attributes
+   var attrArray = ["Infant Center", "Infant Home", "Toddler Center", "Toddler Home","Pre School Center","Pre School Home", "School Age Center", "School Age Home"]; //list of attributes
    var expressed = attrArray[3]; //initial attribute
    var domainArray = [];
    //console.log(expressed)
@@ -23,30 +23,35 @@
 //begin script when window loads
 window.onload = setMap();
 
-//Example 1.3 line 4...set up choropleth map
 function setMap() {
+    // Zoom ability added, defines zoom behavior
+    var zoom = d3.zoom()
+        .scaleExtent([1, 8])
+        .on("zoom", zoomed);
 
     var width = window.innerWidth * .5, height = 473;
 
     //create new svg container for the map
-    var map = d3.select("body")
-    .append("svg")
-    .attr("class", "map")
-    .attr("width", width)
-    .attr("height", height);
+    var svg = d3.select("body")
+        .append("svg")
+        .attr("class", "map")
+        .attr("width", width)
+        .attr("height", height)
+        .call(zoom);
 
-    //create Albers equal area conic projection centered on France
+    // Create a group element to hold the map graphics
+    var g = svg.append("g");
+
     var projection = d3.geoAzimuthalEqualArea()
-    .center([-5, 37.5])
-    .rotate([90, 0, 0])
-    .scale(900)
-    .translate([width / 2, height / 2]);
+        .center([-5, 37.5])
+        .rotate([90, 0, 0])
+        .scale(900)
+        .translate([width / 2, height / 2]);
 
     var path = d3.geoPath()
-    .projection(projection)
-        
-    //use Promise.all to parallelize asynchronous data loading
+        .projection(projection);
 
+    //use Promise.all to parallelize asynchronous data loading
     var promises = [];
     promises.push(d3.csv("data/ChildcarePrices2018.csv"));
     promises.push(d3.csv("data/ChildcarePrices2023.csv"));
@@ -64,30 +69,67 @@ function setMap() {
         var CountriesTopo = topojson.feature(Countries, Countries.objects.Countries);
 
         //place graticule on the map
-        setGraticule(map,path)
+        setGraticule(g, path);
 
-         //add countries to map
-         var countries = map.append("path")
-         .datum(CountriesTopo)
-         .attr("class", "countries")
-         .attr("d", path);
+        //add countries to map
+        var countries = g.append("path")
+            .datum(CountriesTopo)
+            .attr("class", "countries")
+            .attr("d", path);
 
-         //join csv data to GeoJSON enumeration units
-         var counties = joinData(usCounties, csv2018Data);
-        //console.log(counties)
+        //join csv data to GeoJSON enumeration units
+        var counties = joinData(usCounties, csv2018Data);
+
         //create the color scale
         var colorScale = makeColorScale(csv2023Data);
 
         //add enumeration units to the map
-        setEnumerationUnits(counties, map, path,colorScale);
-        //console.log(domainArray)
+        setEnumerationUnits(counties, g, path, colorScale, svg, zoom, width, height);
 
-        //add cooridinated visualization
-        setChart(csv2023Data,colorScale)
+        //add coordinated visualization
+        setChart(csv2023Data, colorScale);
 
-        createDropdown(csv2023Data)
+        createDropdown(csv2023Data);
     };
-};
+
+    //added in zooming capability on the map
+    function zoomed(event) {
+        const { transform } = event;
+        g.attr("transform", transform);
+        g.attr("stroke-width", 1 / transform.k);
+    };
+
+
+
+    //Add the home button
+    addHomeButton(svg, zoom);    
+}
+
+function addHomeButton(svg, zoom) {
+    // Create a group for the button
+    var buttonGroup = svg.append("g")
+        .attr("class", "home-button")
+        .attr("transform", "translate(10, 10)");
+
+    // Create a rectangle for the button background
+    buttonGroup.append("rect")
+        .attr("width", 50)
+        .attr("height", 30);
+
+    // Add text to the button
+    buttonGroup.append("text")
+        .attr("x", 25)
+        .attr("y", 20)
+        .text("Home");
+
+    // Add click event to reset zoom and pan
+    buttonGroup.on("click", function() {
+        svg.transition().duration(750).call(
+            zoom.transform,
+            d3.zoomIdentity
+        );
+    });
+}
 
 function setGraticule(map, path){
     //create graticule generator
@@ -140,41 +182,37 @@ function joinData(counties,csv){
     return counties;
 };
 
-function setEnumerationUnits(usCounties, map, path,colorScale){
-   
+function setEnumerationUnits(usCounties, map, path, colorScale, svg, zoom, width, height) {
     //add us counties to map
     var usCounties = map.selectAll(".FIPS2")
-     .data(usCounties)
-     .enter()
-     .append("path")
-     .attr("class", function(d){
-         return "county " + d.properties.FIPS2;
-     })
-     .attr("d", path)
-         .style("fill", function(d){            
-             var value = d.properties[expressed];
-             //console.log(value)          
-             if(value) {
-                 //console.log(colorScale);                
-                 return colorScale(d.properties[expressed]);            
-             } else {                
-                 return "#ccc";            
-             }
-         })
-             //below Example 2.2 line 16...add style descriptor to each path
-         .on("mouseover", function(event, d){
-             highlight(d.properties);
-             //console.log(d)
-         })
-         .on("mouseout", function(event, d){
-             d3.select(".infolabel")
-             .remove();
-             dehighlight(d.properties)
-         })
-         .on("mousemove", moveLabel);
-             //below Example 2.2 line 16...add style descriptor to each path
- 
- };
+        .data(usCounties)
+        .enter()
+        .append("path")
+        .attr("class", function(d) {
+            return "county " + d.properties.FIPS2;
+        })
+        .attr("d", path)
+        .style("fill", function(d) {            
+            var value = d.properties[expressed];
+            if (value) {
+                return colorScale(d.properties[expressed]);            
+            } else {                
+                return "#ccc";            
+            }
+        })             
+        .on("mouseover", function(event, d) {
+            highlight(d.properties);
+        })
+        .on("mouseout", function(event, d) {
+            d3.select(".infolabel").remove();
+            dehighlight(d.properties);
+        })
+        .on("mousemove", moveLabel)
+        .on("click", function(event, d) {
+            clicked(event, d, map, path, zoom, width, height);
+        });
+}
+
 //function to create color scale generator
 function makeColorScale(data){
     var colorClasses = [
@@ -386,7 +424,7 @@ function highlight(props){
     //console.log(props)
     var selected = d3.selectAll("." + props.FIPS2)
         .style("stroke", "yellow")
-        .style("stroke-width", "3");
+        .style("stroke-width", "2");
     setLabel(props)
 };
 
@@ -439,4 +477,19 @@ function moveLabel(event){
         .style("top", y + "px");
 };
 //I am here for reworking my Lab 2 as the basis!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// Function to handle clicking on a county
+function clicked(event, d, map, path, zoom, width, height) {
+    console.log("clicked event triggered");
+    event.stopPropagation();
+    const [[x0, y0], [x1, y1]] = path.bounds(d);
+    map.transition().duration(750).call(
+        zoom.transform,
+        d3.zoomIdentity
+            .translate(width / 2, height / 2)
+            .scale(Math.min(8, 0.9 / Math.max((x1 - x0) / width, (y1 - y0) / height)))
+            .translate(-(x0 + x1) / 2, -(y0 + y1) / 2),
+        d3.pointer(event, map.node())
+    );
+}
 })();
