@@ -47,7 +47,7 @@ html {background-color: #e0d5f5}  /* changes entire pages background*/
 }
 
 .chartBackground {
-    fill: #ffffff;
+    fill: none;
 }
 
 .chartFrame {
@@ -120,4 +120,33 @@ option {
     text-anchor: middle;
 }
 
+/* Styles for the 2018 button */
+.Y2018-button rect {
+    fill: #fff;
+    stroke: #000;
+    stroke-width: 1;
+    rx: 5; /* rounded corners */
+    ry: 5;
+}
+
+.Y2018-button text {
+    font-size: 14px;
+    fill: #000;
+    text-anchor: middle;
+}
+
+/* Styles for the 2023 button */
+.Y2023-button rect {
+    fill: #fff;
+    stroke: #000;
+    stroke-width: 1;
+    rx: 5; /* rounded corners */
+    ry: 5;
+}
+
+.Y2023-button text {
+    font-size: 14px;
+    fill: #000;
+    text-anchor: middle;
+}
 

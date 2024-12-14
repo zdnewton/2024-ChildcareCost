@@ -29,7 +29,7 @@ window.onload = setMap();
         .scaleExtent([1, 8])
         .on("zoom", zoomed);
 
-    var width = window.innerWidth * .5, height = 473;
+    var width = window.innerWidth * .5, height = 460;
 
     //create new svg container for the map
     var svg = d3.select("body")
@@ -48,7 +48,7 @@ var projection = d3.geoConicEqualArea()
     .scale(1000) 
     .translate([480, 250]) 
     .rotate([96, 0]) 
-    .center([0, 38]); 
+    .center([0, 37.5]); 
 
     var path = d3.geoPath()
         .projection(projection);
@@ -112,7 +112,11 @@ var projection = d3.geoConicEqualArea()
     }
 
     //Add the home button
-    addHomeButton(svg, zoom);    
+    addHomeButton(svg, zoom);
+    //Add 2018 Year Button
+    add2018Button(svg);
+    //Add 2023 Year Button
+    add2023Button(svg);    
 }
 
 function addHomeButton(svg, zoom) {
@@ -138,6 +142,50 @@ function addHomeButton(svg, zoom) {
             zoom.transform,
             d3.zoomIdentity
         );
+    });
+}
+function add2018Button(svg) {
+    // Create a group for the button
+    var buttonGroup = svg.append("g")
+        .attr("class", "Y2018-button")
+        .attr("transform", "translate(10, 50)");
+
+    // Create a rectangle for the button background
+    buttonGroup.append("rect")
+        .attr("width", 50)
+        .attr("height", 30);
+
+    // Add text to the button
+    buttonGroup.append("text")
+        .attr("x", 25)
+        .attr("y", 20)
+        .text("2018");
+
+    // Add click event to switch data to 2018
+    buttonGroup.on("click", function() {
+
+    });
+}
+function add2023Button(svg) {
+    // Create a group for the button
+    var buttonGroup = svg.append("g")
+        .attr("class", "Y2023-button")
+        .attr("transform", "translate(10, 90)");
+
+    // Create a rectangle for the button background
+    buttonGroup.append("rect")
+        .attr("width", 50)
+        .attr("height", 30);
+
+    // Add text to the button
+    buttonGroup.append("text")
+        .attr("x", 25)
+        .attr("y", 20)
+        .text("2023");
+
+    // Add click event to switch data to 2023
+    buttonGroup.on("click", function() {
+
     });
 }
 
@@ -259,7 +307,6 @@ function makeColorScale(data){
 
     //assign array of expressed values as scale domain
     colorScale.domain(domainArray);
-    //console.log(colorScale)
     return colorScale;
 
 };
