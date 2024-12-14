@@ -23,9 +23,9 @@
 //begin script when window loads
 window.onload = setMap();
 
-function setMap() {
-    // Zoom ability added, defines zoom behavior
-    var zoom = d3.zoom()
+    function setMap() {
+        // Initialize zoom behavior
+        var zoom = d3.zoom()
         .scaleExtent([1, 8])
         .on("zoom", zoomed);
 
@@ -42,11 +42,13 @@ function setMap() {
     // Create a group element to hold the map graphics
     var g = svg.append("g");
 
-    var projection = d3.geoAzimuthalEqualArea()
-        .center([-5, 37.5])
-        .rotate([90, 0, 0])
-        .scale(900)
-        .translate([width / 2, height / 2]);
+// Create custom conic equal area projection focused on the contiguous USA
+var projection = d3.geoConicEqualArea()
+    .parallels([29.5, 45.5]) 
+    .scale(1000) 
+    .translate([480, 250]) 
+    .rotate([96, 0]) 
+    .center([0, 38]); 
 
     var path = d3.geoPath()
         .projection(projection);
@@ -100,12 +102,14 @@ function setMap() {
         createDropdown(csv2023Data);
     };
 
-    //added in zooming capability on the map
+    // Zoom function
     function zoomed(event) {
         const { transform } = event;
-        g.attr("transform", transform);
-        g.attr("stroke-width", 1 / transform.k);
-    };
+        currentTransform = transform; // Update currentTransform with the new transform
+        g.attr("transform", currentTransform);
+        g.attr("stroke-width", 1 / currentTransform.k);
+        console.log("Current transform during zoom:", currentTransform);
+    }
 
     //Add the home button
     addHomeButton(svg, zoom);    
@@ -214,7 +218,7 @@ function setEnumerationUnits(usCounties, map, path, colorScale, svg, zoom, width
         })
         .on("mousemove", moveLabel)
         .on("click", function(event, d) {
-            clicked(event, d, map, path, zoom, width, height);
+            clicked(event, d, svg, path, zoom, width, height);
         });
 }
 
@@ -413,28 +417,28 @@ function changeAttribute(attribute, csv) {
 
 //function to position, size, and color bars in chart
 function updateChart(bars, n, colorScale){
-//position bars
-bars.attr("x", function(d, i){
-     return i * (chartInnerWidth / n) + leftPadding;
- })
- //size/resize bars
- .attr("height", function(d, i){
-     return 463 - yScale(parseFloat(d[expressed]));
- })
- .attr("y", function(d, i){
-     return yScale(parseFloat(d[expressed])) + topBottomPadding;
- })
- //color/recolor bars
- .style("fill", function(d){            
-     var value = d[expressed];            
-     if(value) {                
-         return colorScale(value);            
-     } else {                
-         return "#ccc";            
-     }    
-});
-var chartTitle = d3.select(".chartTitle")
- .text(expressed.replace(/_/g, " "));
+    //position bars
+    bars.attr("x", function(d, i){
+        return i * (chartInnerWidth / n) + leftPadding;
+    })
+    //size/resize bars
+    .attr("height", function(d, i){
+        return 463 - yScale(parseFloat(d[expressed]));
+    })
+    .attr("y", function(d, i){
+        return yScale(parseFloat(d[expressed])) + topBottomPadding;
+    })
+    //color/recolor bars
+    .style("fill", function(d){            
+        var value = d[expressed];            
+        if(value) {                
+            return colorScale(value);            
+        } else {                
+            return "#ccc";            
+        }    
+    });
+    var chartTitle = d3.select(".chartTitle")
+    .text(expressed.replace(/_/g, " "));
 };
 
 //function to highlight enumeration units and bars
@@ -453,6 +457,7 @@ function dehighlight(props){
         .style("stroke", "black")
         .style("stroke-width", 0);
 };
+
 //function to create dynamic label
 function setLabel(props){
     //label content
@@ -475,7 +480,6 @@ function setLabel(props){
         .html(props.name);
 };
 
-//Example 2.8 line 1...function to move info label with mouse
 function moveLabel(event){
     //get width of label
     var labelWidth = d3.select(".infolabel")
@@ -499,18 +503,19 @@ function moveLabel(event){
         .style("top", y + "px");
 };
 
-// Function to handle clicking on a county
-function clicked(event, d, map, path, zoom, width, height) {
+// This function runs to zoom in on the county clicked on.
+function clicked(event, d, svg, path, zoom, width, height) {
     console.log("clicked event triggered");
     event.stopPropagation();
     const [[x0, y0], [x1, y1]] = path.bounds(d);
-    map.transition().duration(750).call(
+    svg.transition().duration(750).call(
         zoom.transform,
         d3.zoomIdentity
             .translate(width / 2, height / 2)
             .scale(Math.min(8, 0.9 / Math.max((x1 - x0) / width, (y1 - y0) / height)))
             .translate(-(x0 + x1) / 2, -(y0 + y1) / 2),
-        d3.pointer(event, map.node())
+        d3.pointer(event, svg.node())
     );
+    console.log("clicked finished running");
 }
 })();
