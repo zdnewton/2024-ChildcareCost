@@ -117,6 +117,8 @@ var projection = d3.geoConicEqualArea()
     add2018Button(svg);
     //Add 2023 Year Button
     add2023Button(svg);    
+
+    addFlipSwitch(svg);
 }
 
 function addHomeButton(svg, zoom) {
@@ -188,6 +190,24 @@ function add2023Button(svg) {
 
     });
 }
+
+// What are your thoughts on doing this instead, a little more fun
+function addFlipSwitch(svg) {
+    // Create a group for the flip switch
+    var switchGroup = svg.append("g")
+        .attr("class", "flip-switch")
+        .attr("transform", `translate(${svg.attr("width") - 70}, ${svg.attr("height") - 40})`);
+
+    // Create the flip switch input
+    switchGroup.append("foreignObject")
+        .attr("width", 60)
+        .attr("height", 30)
+        .append("xhtml:div")
+        .html(`
+            <input class="tgl tgl-flip" id="cb5" type="checkbox"/>
+            <label class="tgl-btn" data-tg-off="2018" data-tg-on="2023" for="cb5"></label>
+        `);
+} // end of addFlipSwitch
 
 function setGraticule(map, path){
     //create graticule generator
