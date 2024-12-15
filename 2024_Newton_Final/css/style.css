@@ -155,14 +155,14 @@ option {
     font-size: 14px;
     fill: #FFFFFF;
     text-anchor: middle;
-    pointer-events: none; /* Add this line */
+    pointer-events: none;
 }
 
 /* Styles for the 2018 button */
 .Y2018-button rect {
     fill: #EA4C89;
     border-radius: 8px;
-    stroke: none; /* Use stroke for border */
+    stroke: none;
     box-sizing: border-box;
     color: #FFFFFF;
     cursor: pointer;
@@ -215,6 +215,89 @@ option {
     touch-action: manipulation;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
 }
+
+/* Ensure buttons are clickable */
+.home-button, .flip-switch {
+    pointer-events: auto;
+}
+
+/* Default state for the map */
+.map {
+    pointer-events: auto;
+}
+
+/* Styles for the dropdown container */
+.dropdown-container {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: 200px;
+    height: 80px;
+    overflow: hidden;
+}
+
+/* Background rectangle for the dropdown container */
+.dropdown-background {
+    width: 300px;
+    height: 80px;
+    fill: #f0f0f0;
+    stroke: #EA4C89;
+    stroke-width: 1px;
+    rx: 10px; /* Rounded corners */
+    ry: 10px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
+    transition:  1s linear; /* Add transition for smooth expansion */
+}
+
+/* Expanded state */
+.dropdown-container.expanded .dropdown-background {
+    width: 400px; /* Adjust as needed */
+}
+
+/* Button to toggle expansion */
+.expand-button {
+    width: 30px;
+    height: 30px;
+    background-color: #EA4C89;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+}
+
+/* Dropdown menu styling */
+.dropdown {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 200px;
+    height: 40px;
+    font-family: sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 2px;
+    border: 1px solid #999;
+    box-shadow: 2px 2px 4px #999;
+}
+
+/* Attribute description text box styling */
+.attribute-description {
+    width: 200px;
+    height: 30px;
+    font-family: sans-serif;
+    font-size: 12px;
+    color: #333;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #999;
+    box-shadow: 2px 2px 4px #999;
+}
+
+
+
 
 .tgl {
     display: none;
@@ -317,14 +400,4 @@ option {
             transform: rotateY(20deg);
         }
     }
-}
-
-/* Ensure buttons are clickable */
-.home-button, .flip-switch {
-    pointer-events: auto;
-}
-
-/* Default state for the map */
-.map {
-    pointer-events: auto;
 }

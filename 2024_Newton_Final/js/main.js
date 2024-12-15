@@ -1,33 +1,34 @@
 (function(){
-   //pseudo-global variables
-   var attrArray = ["Infant Center", "Infant Home", "Toddler Center", "Toddler Home","PreSchool Center","PreSchool Home", "School Age Center", "School Age Home"]; //list of attributes
-   var expressed = attrArray[0]; //initial attribute
-   var domainArray = [];
-   //console.log(expressed)
-   
-    //chart frame dimensions
-    var chartWidth = window.innerWidth * 0.45,
-    chartHeight = 473,
-    leftPadding = 25,
-    rightPadding = 2,
-    topBottomPadding = 5,
-    chartInnerWidth = chartWidth - leftPadding - rightPadding,
-    chartInnerHeight = chartHeight - topBottomPadding * 2,
-    translate = "translate(" + leftPadding + "," + topBottomPadding + ")";
 
-    //create a scale to size bars proportionally to frame and for axis
-    var yScale = d3.scaleLinear()
-    .range([463, 0])
-    .domain([0, 40]);
+//pseudo-global variables
+var attrArray = ["Infant Center", "Infant Home", "Toddler Center", "Toddler Home","PreSchool Center","PreSchool Home", "School Age Center", "School Age Home"]; //list of attributes
+var expressed = attrArray[0]; //initial attribute
+var domainArray = [];
+//console.log(expressed)
+
+//chart frame dimensions
+var chartWidth = window.innerWidth * 0.45,
+chartHeight = 473,
+leftPadding = 25,
+rightPadding = 2,
+topBottomPadding = 5,
+chartInnerWidth = chartWidth - leftPadding - rightPadding,
+chartInnerHeight = chartHeight - topBottomPadding * 2,
+translate = "translate(" + leftPadding + "," + topBottomPadding + ")";
+
+//create a scale to size bars proportionally to frame and for axis
+var yScale = d3.scaleLinear()
+               .range([463, 0])
+               .domain([0, 40]);
 
 //begin script when window loads
 window.onload = setMap();
 
-    function setMap() {
-        // Initialize zoom behavior
-        var zoom = d3.zoom()
-        .scaleExtent([1, 8])
-        .on("zoom", zoomed);
+function setMap() {
+    // Initialize zoom behavior
+    var zoom = d3.zoom()
+    .scaleExtent([1, 8])
+    .on("zoom", zoomed);
 
     var width = window.innerWidth * .5, height = 460;
 
@@ -40,15 +41,15 @@ window.onload = setMap();
         .call(zoom);
 
     // Create a group element to hold the map graphics
-    var g = svg.append("g");
+    var g = svg.append("g");        
 
-// Create custom conic equal area projection focused on the contiguous USA
-var projection = d3.geoConicEqualArea()
-    .parallels([29.5, 45.5]) 
-    .scale(1000) 
-    .translate([480, 250]) 
-    .rotate([96, 0]) 
-    .center([0, 37.5]); 
+    // Create custom conic equal area projection focused on the contiguous USA
+    var projection = d3.geoConicEqualArea()
+        .parallels([29.5, 45.5]) 
+        .scale(1000) 
+        .translate([480, 250]) 
+        .rotate([96, 0]) 
+        .center([0, 37.5]); 
 
     var path = d3.geoPath()
         .projection(projection);
@@ -66,40 +67,40 @@ var projection = d3.geoConicEqualArea()
         var csv2018Data = data[0],
             csv2023Data = data[1],
             Counties = data[2],
-            Countries = data[3];
+            Countries = data[3],
             States = data[4];
-
+    
         var usCounties = topojson.feature(Counties, Counties.objects.Counties).features;
         var CountriesTopo = topojson.feature(Countries, Countries.objects.Countries);
-        var StatesTopo = topojson.feature(States, States.objects.States)
-
-        //place graticule on the map
+        var StatesTopo = topojson.feature(States, States.objects.States);
+    
+        // Place graticule on the map
         setGraticule(g, path);
-
-        //add countries to map
+    
+        // Add countries to map
         var countries = g.append("path")
             .datum(CountriesTopo)
             .attr("class", "countries")
             .attr("d", path);
-
-        //join csv data to GeoJSON enumeration units
+    
+        // Join CSV data to GeoJSON enumeration units
         var counties = joinData(usCounties, csv2023Data);
-
-        //create the color scale
+    
+        // Create the color scale
         var colorScale = makeColorScale(csv2023Data);
-
-        //add enumeration units to the map
+    
+        // Add enumeration units to the map
         setEnumerationUnits(counties, g, path, colorScale, svg, zoom, width, height);
-        
+    
         var states = g.append("path")
-        .datum(StatesTopo)
-        .attr("class", "States")
-        .attr("d", path);
-
-        //add coordinated visualization
+            .datum(StatesTopo)
+            .attr("class", "States")
+            .attr("d", path);
+    
+        // Add coordinated visualization
         setChart(csv2023Data, colorScale);
-        
-        createDropdown(csv2023Data);
+    
+        createDropdown(svg, csv2023Data);
     };
 
     // Zoom function
@@ -119,7 +120,7 @@ var projection = d3.geoConicEqualArea()
     add2023Button(svg);    
 
     addFlipSwitch(svg);
-}
+}; // End of setMap function
 
 function addHomeButton(svg, zoom) {
     // Create a group for the button
@@ -139,13 +140,20 @@ function addHomeButton(svg, zoom) {
         .text("Home");
 
     // Add click event to reset zoom and pan
-    buttonGroup.on("click", function() {
+    buttonGroup.on("click", function(event) {
+        event.stopPropagation(); // Prevent click propagation
         svg.transition().duration(750).call(
             zoom.transform,
             d3.zoomIdentity
         );
     });
+
+    // Prevent click propagation for other events
+    buttonGroup.on("mousedown", function(event) { event.stopPropagation(); });
+    buttonGroup.on("mouseup", function(event) { event.stopPropagation(); });
+    buttonGroup.on("dblclick", function(event) { event.stopPropagation(); });
 }
+
 function add2018Button(svg) {
     // Create a group for the button
     var buttonGroup = svg.append("g")
@@ -164,10 +172,17 @@ function add2018Button(svg) {
         .text("2018");
 
     // Add click event to switch data to 2018
-    buttonGroup.on("click", function() {
-
+    buttonGroup.on("click", function(event) {
+        event.stopPropagation(); // Prevent click propagation
+        // Your code to switch data to 2018
     });
+
+    // Prevent click propagation for other events
+    buttonGroup.on("mousedown", function(event) { event.stopPropagation(); });
+    buttonGroup.on("mouseup", function(event) { event.stopPropagation(); });
+    buttonGroup.on("dblclick", function(event) { event.stopPropagation(); });
 }
+
 function add2023Button(svg) {
     // Create a group for the button
     var buttonGroup = svg.append("g")
@@ -186,9 +201,15 @@ function add2023Button(svg) {
         .text("2023");
 
     // Add click event to switch data to 2023
-    buttonGroup.on("click", function() {
-
+    buttonGroup.on("click", function(event) {
+        event.stopPropagation(); // Prevent click propagation
+        // Your code to switch data to 2023
     });
+
+    // Prevent click propagation when interacting with map
+    buttonGroup.on("mousedown", function(event) { event.stopPropagation(); });
+    buttonGroup.on("mouseup", function(event) { event.stopPropagation(); });
+    buttonGroup.on("dblclick", function(event) { event.stopPropagation(); });
 }
 
 // What are your thoughts on doing this instead, a little more fun
@@ -207,7 +228,7 @@ function addFlipSwitch(svg) {
             <input class="tgl tgl-flip" id="cb5" type="checkbox"/>
             <label class="tgl-btn" data-tg-off="2018" data-tg-on="2023" for="cb5"></label>
         `);
-} // end of addFlipSwitch
+} // end of addFlipSwitch function
 
 function setGraticule(map, path){
     //create graticule generator
@@ -227,7 +248,7 @@ function setGraticule(map, path){
     .append("path") //append each element to the svg as a path element
     .attr("class", "gratLines") //assign class for styling
     .attr("d", path); //project graticule lines
-};
+}; //End of setGraticule function
 
 function joinData(counties,csv){
                 
@@ -257,7 +278,7 @@ function joinData(counties,csv){
         };
     }
     return counties;
-};
+}; //End of joinData function
 
 function setEnumerationUnits(usCounties, map, path, colorScale, svg, zoom, width, height) {
     //add us counties to map
@@ -288,7 +309,7 @@ function setEnumerationUnits(usCounties, map, path, colorScale, svg, zoom, width
         .on("click", function(event, d) {
             clicked(event, d, svg, path, zoom, width, height);
         });
-}
+}; //End of setEnumerationUnits function
 
 //function to create color scale generator
 function makeColorScale(data){
@@ -329,7 +350,7 @@ function makeColorScale(data){
     colorScale.domain(domainArray);
     return colorScale;
 
-};
+}; //End of makeColorScale function
 
 //function to create coordinated bar chart
 function setChart(csv, colorScale){
@@ -405,31 +426,111 @@ function setChart(csv, colorScale){
         .attr("width", chartInnerWidth)
         .attr("height", chartInnerHeight)
         .attr("transform", translate);
-};
-//function to create a dropdown menu for attribute selection
-function createDropdown(csv){
-    //add select element
-    var dropdown = d3.select("body")
-        .append("select")
+}; //End of setChart function
+
+function createDropdown(svg, csv) {
+    // Create a group for the dropdown and text box
+    var containerGroup = svg.append("g")
+        .attr("class", "dropdown-container")
+        .attr("transform", "translate(10, " + (svg.attr("height") - 100) + ")");
+
+    // Add a rectangle as the background
+    var backgroundRect = containerGroup.append("rect")
+        .attr("class", "dropdown-background");
+
+    // Add the dropdown menu
+    var dropdown = containerGroup.append("foreignObject")
+        .attr("width", 300)
+        .attr("height", 30)
+        .attr("x", 10)
+        .attr("y", 10)
+        .append("xhtml:select")
         .attr("class", "dropdown")
-        .on("change", function(){
-            changeAttribute(this.value, csv)
+        .on("change", function() {
+            changeAttribute(this.value, csv);
+            updateDescription(this.value);
         });
 
-    //add initial option
-    var titleOption = dropdown.append("option")
+    // Add initial option
+    dropdown.append("option")
         .attr("class", "titleOption")
         .attr("disabled", "true")
         .text("Select Attribute");
 
-    //add attribute name options
-    var attrOptions = dropdown.selectAll("attrOptions")
+    // Add attribute name options
+    dropdown.selectAll("attrOptions")
         .data(attrArray)
         .enter()
         .append("option")
-        .attr("value", function(d){ return d })
-        .text(function(d){ return d.replace(/_/g, " ") });
-};
+        .attr("value", function(d) { return d; })
+        .text(function(d) { return d.replace(/_/g, " "); });
+
+    // Add a text box for the description
+    containerGroup.append("foreignObject")
+        .attr("width", 200)
+        .attr("height", 30)
+        .attr("x", 10)
+        .attr("y", 50)
+        .append("xhtml:div")
+        .attr("class", "attribute-description")
+        .style("font-family", "sans-serif")
+        .style("font-size", "12px")
+        .style("color", "#333")
+        .text("Select an attribute to see the description.");
+
+    // Add the expand button
+    var expandButtonContainer = containerGroup.append("foreignObject")
+        .attr("class", "expand-button-container")
+        .attr("width", 30)
+        .attr("height", 30)
+        .attr("x", 300) // Initial position based on container width
+        .attr("y", 25) // Center vertically within the container
+        .append("xhtml:button")
+        .attr("class", "expand-button")
+        .style("width", "30px")
+        .style("height", "30px")
+        .style("background-color", "#EA4C89")
+        .style("border", "none")
+        .style("border-radius", "0 10px 10px 0")
+        .style("cursor", "pointer")
+        .style("color", "#fff")
+        .style("font-size", "16px")
+        .style("line-height", "30px")
+        .style("text-align", "center")
+        .text(">")
+        .on("click", function() {
+            var container = d3.select(".dropdown-container");
+            var isExpanded = container.classed("expanded");
+            container.classed("expanded", !isExpanded);
+            d3.select(this)
+            .text(isExpanded ? ">" : "<");
+        
+            // Update button position based on expanded state
+            var newX = isExpanded ? 300 : 400; // Adjust based on expanded width
+            d3.select(this.parentNode)
+              .transition()
+              .duration(1000)
+              .ease(d3.easeLinear)
+              .attr("x", newX);
+        });
+}
+
+function updateDescription(attribute) {
+    var descriptions = {
+        "Infant Center": "Description for Infant Center",
+        "Infant Home": "Description for Infant Home",
+        "Toddler Center": "Description for Toddler Center",
+        "Toddler Home": "Description for Toddler Home",
+        "PreSchool Center": "Description for PreSchool Center",
+        "PreSchool Home": "Description for PreSchool Home",
+        "School Age Center": "Description for School Age Center",
+        "School Age Home": "Description for School Age Home"
+    };
+
+    d3.select(".attribute-description")
+        .text(descriptions[attribute] || "No description available.");
+}
+
 function changeAttribute(attribute, csv) {
     //change the expressed attribute
     expressed = attribute;
@@ -480,7 +581,7 @@ function changeAttribute(attribute, csv) {
         }    
     });
     updateChart(bars, csv.length, colorScale);
-};
+}; //End of changeAttribute function
 
 //function to position, size, and color bars in chart
 function updateChart(bars, n, colorScale){
@@ -506,7 +607,7 @@ function updateChart(bars, n, colorScale){
     });
     var chartTitle = d3.select(".chartTitle")
     .text(expressed.replace(/_/g, " "));
-};
+}; //End of updateChart function
 
 //function to highlight enumeration units and bars
 function highlight(props){
@@ -516,14 +617,14 @@ function highlight(props){
         .style("stroke-width", "2");
     setLabel(props)
     //console.log(props)
-};
+}; //End of highlight function
 
 //function to reset the element style on mouseout
 function dehighlight(props){
     var selected = d3.selectAll("." + props.FIPS2)
         .style("stroke", "black")
         .style("stroke-width", 0);
-};
+}; //End of dehighlight function
 
 //function to create dynamic label
 function setLabel(props){
@@ -545,7 +646,7 @@ function setLabel(props){
     var regionName = infolabel.append("div")
         .attr("class", "labelname")
         .html(props.name);
-};
+}; //End of setlabel function
 
 function moveLabel(event){
     //get width of label
@@ -568,7 +669,7 @@ function moveLabel(event){
     d3.select(".infolabel")
         .style("left", x + "px")
         .style("top", y + "px");
-};
+}; //End of moveLabel function
 
 // This function runs to zoom in on the county clicked on.
 function clicked(event, d, svg, path, zoom, width, height) {
@@ -584,5 +685,6 @@ function clicked(event, d, svg, path, zoom, width, height) {
         d3.pointer(event, svg.node())
     );
     console.log("clicked finished running");
-}
+}; //End of clicked function
+
 })();
