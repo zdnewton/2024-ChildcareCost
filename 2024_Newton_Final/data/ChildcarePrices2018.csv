@@ -60,41 +60,41 @@ Alabama,St. Clair County,F01115,14.2,8.7,14.2,8.9,12.7,8.9,10.1,7.6
 Alabama,Shelby County,F01117,9.8,6.1,9.8,6.3,8.7,6.3,6.9,5.4
 Alabama,Sumter County,F01119,13,10.5,13,10.5,12.6,10.5,12.6,10.5
 Alabama,Talladega County,F01121,9.8,8.7,9.8,8.7,9.4,8.5,9.4,7.6
-Alabama,Tallapoosa County,F01123,#REF!,11.5,12.2,11.5,11.7,11,11.4,10.3
+Alabama,Tallapoosa County,F01123,0,11.5,12.2,11.5,11.7,11,11.4,10.3
 Alabama,Tuscaloosa County,F01125,8.1,6.8,8.1,6.8,7.9,6.8,7.9,6.8
 Alabama,Walker County,F01127,17,10.4,17,10.7,15.1,10.7,12.1,9.1
 Alabama,Washington County,F01129,13.4,11.7,13.4,11.7,12.3,11.7,12,11.7
 Alabama,Wilcox County,F01131,15.2,13.1,15.2,13.1,12.8,13,12.1,12.9
 Alabama,Winston County,F01133,15,12.8,15,12.8,13.3,12.7,12.4,12.4
-Alaska,Aleutians East Borough,F02013,,,,,,,,
-Alaska,Aleutians West Census Area,F02016,,,,,,,,
+Alaska,Aleutians East Borough,F02013,0,0,0,0,0,0,0,0
+Alaska,Aleutians West Census Area,F02016,0,0,0,0,0,0,0,0
 Alaska,Anchorage Municipality,F02020,12.7,9.4,12.2,8.6,10.3,8,10.8,6.8
-Alaska,Bethel Census Area,F02050,,,,,,,,
-Alaska,Bristol Bay Borough,F02060,,,,,,,,
-Alaska,Denali Borough,F02068,17.1,,16.4,,15,,4.1,
-Alaska,Dillingham Census Area,F02070,,,,,,,,
-Alaska,Fairbanks North Star Borough,F02090,20,,15.6,,12.2,,9.1,
-Alaska,Haines Borough,F02100,21.7,,17.5,,13.3,,12.2,
-Alaska,Hoonah-Angoon Census Area,F02105,,,,,,,,
-Alaska,Juneau City and Borough,F02110,14.2,,14.7,,12.7,,3.8,
-Alaska,Kenai Peninsula Borough,F02122,,,,,,,,
-Alaska,Ketchikan Gateway Borough,F02130,,,,,,,,
-Alaska,Kodiak Island Borough,F02150,,,,,,,,
-Alaska,Kusilvak Census Area,F02158,,,,,,,,
-Alaska,Lake and Peninsula Borough,F02164,,,,,,,,
-Alaska,Matanuska-Susitna Borough,F02170,,,,,,,,
-Alaska,Nome Census Area,F02180,,,,,,,,
-Alaska,North Slope Borough,F02185,,,,,,,,
-Alaska,Northwest Arctic Borough,F02188,,,,,,,,
-Alaska,Petersburg Borough,F02195,,,,,,,,
-Alaska,Prince of Wales-Hyder Census Area,F02198,,,,,,,,
-Alaska,Sitka City and Borough,F02220,20.3,,15.3,,12.7,,9.7,
-Alaska,Skagway Municipality,F02230,,,,,,,,
-Alaska,Southeast Fairbanks Census Area,F02240,,,,,,,,
-Alaska,Valdez-Cordova Census Area,F02261,18.2,,14.7,,11.5,,8.6,
-Alaska,Wrangell City and Borough,F02275,,,,,,,,
-Alaska,Yakutat City and Borough,F02282,,,,,,,,
-Alaska,Yukon-Koyukuk Census Area,F02290,,,,,,,,
+Alaska,Bethel Census Area,F02050,0,0,0,0,0,0,0,0
+Alaska,Bristol Bay Borough,F02060,0,0,0,0,0,0,0,0
+Alaska,Denali Borough,F02068,17.1,0,16.4,0,15,0,4.1,0
+Alaska,Dillingham Census Area,F02070,0,0,0,0,0,0,0,0
+Alaska,Fairbanks North Star Borough,F02090,20,0,15.6,0,12.2,0,9.1,0
+Alaska,Haines Borough,F02100,21.7,0,17.5,0,13.3,0,12.2,0
+Alaska,Hoonah-Angoon Census Area,F02105,0,0,0,0,0,0,0,0
+Alaska,Juneau City and Borough,F02110,14.2,0,14.7,0,12.7,0,3.8,0
+Alaska,Kenai Peninsula Borough,F02122,0,0,0,0,0,0,0,0
+Alaska,Ketchikan Gateway Borough,F02130,0,0,0,0,0,0,0,0
+Alaska,Kodiak Island Borough,F02150,0,0,0,0,0,0,0,0
+Alaska,Kusilvak Census Area,F02158,0,0,0,0,0,0,0,0
+Alaska,Lake and Peninsula Borough,F02164,0,0,0,0,0,0,0,0
+Alaska,Matanuska-Susitna Borough,F02170,0,0,0,0,0,0,0,0
+Alaska,Nome Census Area,F02180,0,0,0,0,0,0,0,0
+Alaska,North Slope Borough,F02185,0,0,0,0,0,0,0,0
+Alaska,Northwest Arctic Borough,F02188,0,0,0,0,0,0,0,0
+Alaska,Petersburg Borough,F02195,0,0,0,0,0,0,0,0
+Alaska,Prince of Wales-Hyder Census Area,F02198,0,0,0,0,0,0,0,0
+Alaska,Sitka City and Borough,F02220,20.3,0,15.3,0,12.7,0,9.7,0
+Alaska,Skagway Municipality,F02230,0,0,0,0,0,0,0,0
+Alaska,Southeast Fairbanks Census Area,F02240,0,0,0,0,0,0,0,0
+Alaska,Valdez-Cordova Census Area,F02261,18.2,0,14.7,0,11.5,0,8.6,0
+Alaska,Wrangell City and Borough,F02275,0,0,0,0,0,0,0,0
+Alaska,Yakutat City and Borough,F02282,0,0,0,0,0,0,0,0
+Alaska,Yukon-Koyukuk Census Area,F02290,0,0,0,0,0,0,0,0
 Arizona,Apache County,F04001,22.3,15.5,20.8,15.5,18.8,15.5,17.4,15.5
 Arizona,Cochise County,F04003,15.7,8.9,12.2,8.9,11.1,8.9,11.1,8.9
 Arizona,Coconino County,F04005,12.9,8.9,12,8.9,10.9,8.9,10,8.9
@@ -243,70 +243,70 @@ California,Tuolumne County,F06109,15.4,12.9,12.4,11.7,12.4,11.7,10.2,10.2
 California,Ventura County,F06111,17.8,11.6,12.3,10.8,12.3,10.8,12,9.2
 California,Yolo County,F06113,20.6,13.2,14.7,12,14.7,12,12.3,10
 California,Yuba County,F06115,21.6,14.5,13.7,13.9,13.7,13.9,14.7,12.5
-Colorado,Adams County,F08001,,,,,,,,
-Colorado,Alamosa County,F08003,,,,,,,,
-Colorado,Arapahoe County,F08005,,,,,,,,
-Colorado,Archuleta County,F08007,,,,,,,,
-Colorado,Baca County,F08009,,,,,,,,
-Colorado,Bent County,F08011,,,,,,,,
-Colorado,Boulder County,F08013,,,,,,,,
-Colorado,Broomfield County,F08014,,,,,,,,
-Colorado,Chaffee County,F08015,,,,,,,,
-Colorado,Cheyenne County,F08017,,,,,,,,
-Colorado,Clear Creek County,F08019,,,,,,,,
-Colorado,Conejos County,F08021,,,,,,,,
-Colorado,Costilla County,F08023,,,,,,,,
-Colorado,Crowley County,F08025,,,,,,,,
-Colorado,Custer County,F08027,,,,,,,,
-Colorado,Delta County,F08029,,,,,,,,
-Colorado,Denver County,F08031,,,,,,,,
-Colorado,Dolores County,F08033,,,,,,,,
-Colorado,Douglas County,F08035,,,,,,,,
-Colorado,Eagle County,F08037,,,,,,,,
-Colorado,Elbert County,F08039,,,,,,,,
-Colorado,El Paso County,F08041,,,,,,,,
-Colorado,Fremont County,F08043,,,,,,,,
-Colorado,Garfield County,F08045,,,,,,,,
-Colorado,Gilpin County,F08047,,,,,,,,
-Colorado,Grand County,F08049,,,,,,,,
-Colorado,Gunnison County,F08051,,,,,,,,
-Colorado,Hinsdale County,F08053,,,,,,,,
-Colorado,Huerfano County,F08055,,,,,,,,
-Colorado,Jackson County,F08057,,,,,,,,
-Colorado,Jefferson County,F08059,,,,,,,,
-Colorado,Kiowa County,F08061,,,,,,,,
-Colorado,Kit Carson County,F08063,,,,,,,,
-Colorado,Lake County,F08065,,,,,,,,
-Colorado,La Plata County,F08067,,,,,,,,
-Colorado,Larimer County,F08069,,,,,,,,
-Colorado,Las Animas County,F08071,,,,,,,,
-Colorado,Lincoln County,F08073,,,,,,,,
-Colorado,Logan County,F08075,,,,,,,,
-Colorado,Mesa County,F08077,,,,,,,,
-Colorado,Mineral County,F08079,,,,,,,,
-Colorado,Moffat County,F08081,,,,,,,,
-Colorado,Montezuma County,F08083,,,,,,,,
-Colorado,Montrose County,F08085,,,,,,,,
-Colorado,Morgan County,F08087,,,,,,,,
-Colorado,Otero County,F08089,,,,,,,,
-Colorado,Ouray County,F08091,,,,,,,,
-Colorado,Park County,F08093,,,,,,,,
-Colorado,Phillips County,F08095,,,,,,,,
-Colorado,Pitkin County,F08097,,,,,,,,
-Colorado,Prowers County,F08099,,,,,,,,
-Colorado,Pueblo County,F08101,,,,,,,,
-Colorado,Rio Blanco County,F08103,,,,,,,,
-Colorado,Rio Grande County,F08105,,,,,,,,
-Colorado,Routt County,F08107,,,,,,,,
-Colorado,Saguache County,F08109,,,,,,,,
-Colorado,San Juan County,F08111,,,,,,,,
-Colorado,San Miguel County,F08113,,,,,,,,
-Colorado,Sedgwick County,F08115,,,,,,,,
-Colorado,Summit County,F08117,,,,,,,,
-Colorado,Teller County,F08119,,,,,,,,
-Colorado,Washington County,F08121,,,,,,,,
-Colorado,Weld County,F08123,,,,,,,,
-Colorado,Yuma County,F08125,,,,,,,,
+Colorado,Adams County,F08001,0,0,0,0,0,0,0,0
+Colorado,Alamosa County,F08003,0,0,0,0,0,0,0,0
+Colorado,Arapahoe County,F08005,0,0,0,0,0,0,0,0
+Colorado,Archuleta County,F08007,0,0,0,0,0,0,0,0
+Colorado,Baca County,F08009,0,0,0,0,0,0,0,0
+Colorado,Bent County,F08011,0,0,0,0,0,0,0,0
+Colorado,Boulder County,F08013,0,0,0,0,0,0,0,0
+Colorado,Broomfield County,F08014,0,0,0,0,0,0,0,0
+Colorado,Chaffee County,F08015,0,0,0,0,0,0,0,0
+Colorado,Cheyenne County,F08017,0,0,0,0,0,0,0,0
+Colorado,Clear Creek County,F08019,0,0,0,0,0,0,0,0
+Colorado,Conejos County,F08021,0,0,0,0,0,0,0,0
+Colorado,Costilla County,F08023,0,0,0,0,0,0,0,0
+Colorado,Crowley County,F08025,0,0,0,0,0,0,0,0
+Colorado,Custer County,F08027,0,0,0,0,0,0,0,0
+Colorado,Delta County,F08029,0,0,0,0,0,0,0,0
+Colorado,Denver County,F08031,0,0,0,0,0,0,0,0
+Colorado,Dolores County,F08033,0,0,0,0,0,0,0,0
+Colorado,Douglas County,F08035,0,0,0,0,0,0,0,0
+Colorado,Eagle County,F08037,0,0,0,0,0,0,0,0
+Colorado,Elbert County,F08039,0,0,0,0,0,0,0,0
+Colorado,El Paso County,F08041,0,0,0,0,0,0,0,0
+Colorado,Fremont County,F08043,0,0,0,0,0,0,0,0
+Colorado,Garfield County,F08045,0,0,0,0,0,0,0,0
+Colorado,Gilpin County,F08047,0,0,0,0,0,0,0,0
+Colorado,Grand County,F08049,0,0,0,0,0,0,0,0
+Colorado,Gunnison County,F08051,0,0,0,0,0,0,0,0
+Colorado,Hinsdale County,F08053,0,0,0,0,0,0,0,0
+Colorado,Huerfano County,F08055,0,0,0,0,0,0,0,0
+Colorado,Jackson County,F08057,0,0,0,0,0,0,0,0
+Colorado,Jefferson County,F08059,0,0,0,0,0,0,0,0
+Colorado,Kiowa County,F08061,0,0,0,0,0,0,0,0
+Colorado,Kit Carson County,F08063,0,0,0,0,0,0,0,0
+Colorado,Lake County,F08065,0,0,0,0,0,0,0,0
+Colorado,La Plata County,F08067,0,0,0,0,0,0,0,0
+Colorado,Larimer County,F08069,0,0,0,0,0,0,0,0
+Colorado,Las Animas County,F08071,0,0,0,0,0,0,0,0
+Colorado,Lincoln County,F08073,0,0,0,0,0,0,0,0
+Colorado,Logan County,F08075,0,0,0,0,0,0,0,0
+Colorado,Mesa County,F08077,0,0,0,0,0,0,0,0
+Colorado,Mineral County,F08079,0,0,0,0,0,0,0,0
+Colorado,Moffat County,F08081,0,0,0,0,0,0,0,0
+Colorado,Montezuma County,F08083,0,0,0,0,0,0,0,0
+Colorado,Montrose County,F08085,0,0,0,0,0,0,0,0
+Colorado,Morgan County,F08087,0,0,0,0,0,0,0,0
+Colorado,Otero County,F08089,0,0,0,0,0,0,0,0
+Colorado,Ouray County,F08091,0,0,0,0,0,0,0,0
+Colorado,Park County,F08093,0,0,0,0,0,0,0,0
+Colorado,Phillips County,F08095,0,0,0,0,0,0,0,0
+Colorado,Pitkin County,F08097,0,0,0,0,0,0,0,0
+Colorado,Prowers County,F08099,0,0,0,0,0,0,0,0
+Colorado,Pueblo County,F08101,0,0,0,0,0,0,0,0
+Colorado,Rio Blanco County,F08103,0,0,0,0,0,0,0,0
+Colorado,Rio Grande County,F08105,0,0,0,0,0,0,0,0
+Colorado,Routt County,F08107,0,0,0,0,0,0,0,0
+Colorado,Saguache County,F08109,0,0,0,0,0,0,0,0
+Colorado,San Juan County,F08111,0,0,0,0,0,0,0,0
+Colorado,San Miguel County,F08113,0,0,0,0,0,0,0,0
+Colorado,Sedgwick County,F08115,0,0,0,0,0,0,0,0
+Colorado,Summit County,F08117,0,0,0,0,0,0,0,0
+Colorado,Teller County,F08119,0,0,0,0,0,0,0,0
+Colorado,Washington County,F08121,0,0,0,0,0,0,0,0
+Colorado,Weld County,F08123,0,0,0,0,0,0,0,0
+Colorado,Yuma County,F08125,0,0,0,0,0,0,0,0
 Connecticut,Fairfield County,F09001,16.7,11.4,16.7,11.1,13.4,11.1,5,5.7
 Connecticut,Hartford County,F09003,17.3,11.3,17.3,10.9,13.7,10.9,5.4,5.5
 Connecticut,Litchfield County,F09005,14.3,11.7,14.3,10.8,12.4,10.8,6.3,5.5
@@ -318,7 +318,7 @@ Connecticut,Windham County,F09015,15.7,12,15.7,11.1,13.9,11.1,5.2,5.1
 Delaware,Kent County,F10001,13.5,10,12.6,9.9,11.3,9.7,5.7,4.8
 Delaware,New Castle County,F10003,14.9,9.8,13.5,9.4,11.5,9.1,6.1,5.1
 Delaware,Sussex County,F10005,13.1,9.8,12.2,8.9,11,8.9,5.5,4.4
-District of Columbia,District of Columbia,F11001,,,,,,,,
+District of Columbia,District of Columbia,F11001,0,0,0,0,0,0,0,0
 Florida,Alachua County,F12001,11.6,11.4,10.5,9.2,8.5,9.3,7.4,5.7
 Florida,Baker County,F12003,10.1,9,9.2,6.6,7.8,5.2,7.7,4.5
 Florida,Bay County,F12005,12.4,10.8,11.2,8,9.4,8.2,6.7,6.3
@@ -332,7 +332,7 @@ Florida,Clay County,F12019,13.2,9.9,11.8,9.2,9.2,8.1,9,6.4
 Florida,Collier County,F12021,14.1,11.6,11.8,10,10.2,9.8,7.4,6.7
 Florida,Columbia County,F12023,11.3,13.4,10,10,8,10.6,7.7,10.1
 Florida,DeSoto County,F12027,16.6,16.3,13.8,16.2,12.5,16,12.2,15.1
-Florida,Dixie County,F12029,21,,17.8,,15.6,,11.3,
+Florida,Dixie County,F12029,21,0,17.8,0,15.6,0,11.3,0
 Florida,Duval County,F12031,13.3,11.5,11.5,9.8,9.6,8.2,7.7,6.5
 Florida,Escambia County,F12033,12.3,10.6,11,9.4,9.8,8.7,8.7,8.4
 Florida,Flagler County,F12035,13.9,12.8,12.2,11.1,12.5,11.1,10.2,9.9
@@ -341,7 +341,7 @@ Florida,Gadsden County,F12039,13.5,14.9,11.9,10.2,10,9.9,7.4,9.7
 Florida,Gilchrist County,F12041,14,15.7,11.1,12.7,11.1,10.4,9,10.7
 Florida,Glades County,F12043,14.7,16.1,12.3,13.1,14.7,10.7,12,11
 Florida,Gulf County,F12045,13.2,14.6,11.8,11.8,9.9,9.7,10.3,9.9
-Florida,Hamilton County,F12047,,,,,,,,
+Florida,Hamilton County,F12047,0,0,0,0,0,0,0,0
 Florida,Hardee County,F12049,10.5,13.8,10.2,12.8,8.3,12.8,10.8,10.6
 Florida,Hendry County,F12051,17.9,11.7,17.1,9.4,14.6,7.8,12.8,7.6
 Florida,Hernando County,F12053,13.7,14.9,11.3,13.6,9.3,11.4,8.7,6.8
@@ -381,7 +381,7 @@ Florida,Seminole County,F12117,13.3,10.3,11.4,8.7,10.2,8.5,9.2,10
 Florida,Sumter County,F12119,13,9.5,11,9.3,9.2,8.9,7.9,6.5
 Florida,Suwannee County,F12121,16.3,15.5,16,12.8,14.6,12.2,12.8,9.7
 Florida,Taylor County,F12123,13.2,14.3,11.5,13.2,10.3,13.2,11.7,10.9
-Florida,Union County,F12125,,,,,,,,
+Florida,Union County,F12125,0,0,0,0,0,0,0,0
 Florida,Volusia County,F12127,15.5,12.9,11.9,11.3,10.5,9.5,8.2,6.4
 Florida,Wakulla County,F12129,10.4,10.2,8.8,8.9,7.9,9.2,8,7.7
 Florida,Walton County,F12131,13.2,9.8,9.4,7.2,8.8,7.8,8.8,7.8
@@ -545,11 +545,11 @@ Georgia,Wilcox County,F13315,10.7,9.5,10.1,9.5,10.1,9.5,9.5,9.5
 Georgia,Wilkes County,F13317,10,8.9,9.5,8.9,9.5,8.9,8.9,8.9
 Georgia,Wilkinson County,F13319,10.4,9.3,9.9,9.3,9.9,9.3,9.3,9.3
 Georgia,Worth County,F13321,9.8,8.7,9.2,8.7,9.2,8.7,8.7,8.7
-Hawaii,Hawaii County,F15001,,8.4,,8.4,,5.1,,5.1
+Hawaii,Hawaii County,F15001,0,8.4,0,8.4,0,5.1,0,5.1
 Hawaii,Honolulu County,F15003,18.5,9.9,18.5,9.9,12.1,9.9,1.9,9.9
-Hawaii,Kalawao County,F15005,,,,,,,,
-Hawaii,Kauai County,F15007,,9.1,,9.1,,8.7,,8.7
-Hawaii,Maui County,F15009,,8.7,,8.7,,8.7,,8.7
+Hawaii,Kalawao County,F15005,0,0,0,0,0,0,0,0
+Hawaii,Kauai County,F15007,0,9.1,0,9.1,0,8.7,0,8.7
+Hawaii,Maui County,F15009,0,8.7,0,8.7,0,8.7,0,8.7
 Idaho,Ada County,F16001,11.6,9.2,10.7,8.7,9.5,8.2,8.1,7.5
 Idaho,Adams County,F16003,9.9,9,9.5,8.4,8.8,8.2,8.2,8.1
 Idaho,Bannock County,F16005,9.2,8.3,8.7,7.8,8.2,7.5,7.6,7.5
@@ -696,98 +696,98 @@ Illinois,Will County,F17197,12.5,8.4,10.4,7.8,9.3,7.2,5.1,4
 Illinois,Williamson County,F17199,13.4,10,11.6,10,10,10,5.6,5
 Illinois,Winnebago County,F17201,19,12.8,15.8,11.9,14.1,10.9,7.7,6.1
 Illinois,Woodford County,F17203,14.8,9.9,12.3,9.2,11,8.5,6,4.7
-Indiana,Adams County,F18001,,,,,,,,
-Indiana,Allen County,F18003,,,,,,,,
-Indiana,Bartholomew County,F18005,,,,,,,,
-Indiana,Benton County,F18007,,,,,,,,
-Indiana,Blackford County,F18009,,,,,,,,
-Indiana,Boone County,F18011,,,,,,,,
-Indiana,Brown County,F18013,,,,,,,,
-Indiana,Carroll County,F18015,,,,,,,,
-Indiana,Cass County,F18017,,,,,,,,
-Indiana,Clark County,F18019,,,,,,,,
-Indiana,Clay County,F18021,,,,,,,,
-Indiana,Clinton County,F18023,,,,,,,,
-Indiana,Crawford County,F18025,,,,,,,,
-Indiana,Daviess County,F18027,,,,,,,,
-Indiana,Dearborn County,F18029,,,,,,,,
-Indiana,Decatur County,F18031,,,,,,,,
-Indiana,DeKalb County,F18033,,,,,,,,
-Indiana,Delaware County,F18035,,,,,,,,
-Indiana,Dubois County,F18037,,,,,,,,
-Indiana,Elkhart County,F18039,,,,,,,,
-Indiana,Fayette County,F18041,,,,,,,,
-Indiana,Floyd County,F18043,,,,,,,,
-Indiana,Fountain County,F18045,,,,,,,,
-Indiana,Franklin County,F18047,,,,,,,,
-Indiana,Fulton County,F18049,,,,,,,,
-Indiana,Gibson County,F18051,,,,,,,,
-Indiana,Grant County,F18053,,,,,,,,
-Indiana,Greene County,F18055,,,,,,,,
-Indiana,Hamilton County,F18057,,,,,,,,
-Indiana,Hancock County,F18059,,,,,,,,
-Indiana,Harrison County,F18061,,,,,,,,
-Indiana,Hendricks County,F18063,,,,,,,,
-Indiana,Henry County,F18065,,,,,,,,
-Indiana,Howard County,F18067,,,,,,,,
-Indiana,Huntington County,F18069,,,,,,,,
-Indiana,Jackson County,F18071,,,,,,,,
-Indiana,Jasper County,F18073,,,,,,,,
-Indiana,Jay County,F18075,,,,,,,,
-Indiana,Jefferson County,F18077,,,,,,,,
-Indiana,Jennings County,F18079,,,,,,,,
-Indiana,Johnson County,F18081,,,,,,,,
-Indiana,Knox County,F18083,,,,,,,,
-Indiana,Kosciusko County,F18085,,,,,,,,
-Indiana,LaGrange County,F18087,,,,,,,,
-Indiana,Lake County,F18089,,,,,,,,
-Indiana,LaPorte County,F18091,,,,,,,,
-Indiana,Lawrence County,F18093,,,,,,,,
-Indiana,Madison County,F18095,,,,,,,,
-Indiana,Marion County,F18097,,,,,,,,
-Indiana,Marshall County,F18099,,,,,,,,
-Indiana,Martin County,F18101,,,,,,,,
-Indiana,Miami County,F18103,,,,,,,,
-Indiana,Monroe County,F18105,,,,,,,,
-Indiana,Montgomery County,F18107,,,,,,,,
-Indiana,Morgan County,F18109,,,,,,,,
-Indiana,Newton County,F18111,,,,,,,,
-Indiana,Noble County,F18113,,,,,,,,
-Indiana,Ohio County,F18115,,,,,,,,
-Indiana,Orange County,F18117,,,,,,,,
-Indiana,Owen County,F18119,,,,,,,,
-Indiana,Parke County,F18121,,,,,,,,
-Indiana,Perry County,F18123,,,,,,,,
-Indiana,Pike County,F18125,,,,,,,,
-Indiana,Porter County,F18127,,,,,,,,
-Indiana,Posey County,F18129,,,,,,,,
-Indiana,Pulaski County,F18131,,,,,,,,
-Indiana,Putnam County,F18133,,,,,,,,
-Indiana,Randolph County,F18135,,,,,,,,
-Indiana,Ripley County,F18137,,,,,,,,
-Indiana,Rush County,F18139,,,,,,,,
-Indiana,St. Joseph County,F18141,,,,,,,,
-Indiana,Scott County,F18143,,,,,,,,
-Indiana,Shelby County,F18145,,,,,,,,
-Indiana,Spencer County,F18147,,,,,,,,
-Indiana,Starke County,F18149,,,,,,,,
-Indiana,Steuben County,F18151,,,,,,,,
-Indiana,Sullivan County,F18153,,,,,,,,
-Indiana,Switzerland County,F18155,,,,,,,,
-Indiana,Tippecanoe County,F18157,,,,,,,,
-Indiana,Tipton County,F18159,,,,,,,,
-Indiana,Union County,F18161,,,,,,,,
-Indiana,Vanderburgh County,F18163,,,,,,,,
-Indiana,Vermillion County,F18165,,,,,,,,
-Indiana,Vigo County,F18167,,,,,,,,
-Indiana,Wabash County,F18169,,,,,,,,
-Indiana,Warren County,F18171,,,,,,,,
-Indiana,Warrick County,F18173,,,,,,,,
-Indiana,Washington County,F18175,,,,,,,,
-Indiana,Wayne County,F18177,,,,,,,,
-Indiana,Wells County,F18179,,,,,,,,
-Indiana,White County,F18181,,,,,,,,
-Indiana,Whitley County,F18183,,,,,,,,
+Indiana,Adams County,F18001,0,0,0,0,0,0,0,0
+Indiana,Allen County,F18003,0,0,0,0,0,0,0,0
+Indiana,Bartholomew County,F18005,0,0,0,0,0,0,0,0
+Indiana,Benton County,F18007,0,0,0,0,0,0,0,0
+Indiana,Blackford County,F18009,0,0,0,0,0,0,0,0
+Indiana,Boone County,F18011,0,0,0,0,0,0,0,0
+Indiana,Brown County,F18013,0,0,0,0,0,0,0,0
+Indiana,Carroll County,F18015,0,0,0,0,0,0,0,0
+Indiana,Cass County,F18017,0,0,0,0,0,0,0,0
+Indiana,Clark County,F18019,0,0,0,0,0,0,0,0
+Indiana,Clay County,F18021,0,0,0,0,0,0,0,0
+Indiana,Clinton County,F18023,0,0,0,0,0,0,0,0
+Indiana,Crawford County,F18025,0,0,0,0,0,0,0,0
+Indiana,Daviess County,F18027,0,0,0,0,0,0,0,0
+Indiana,Dearborn County,F18029,0,0,0,0,0,0,0,0
+Indiana,Decatur County,F18031,0,0,0,0,0,0,0,0
+Indiana,DeKalb County,F18033,0,0,0,0,0,0,0,0
+Indiana,Delaware County,F18035,0,0,0,0,0,0,0,0
+Indiana,Dubois County,F18037,0,0,0,0,0,0,0,0
+Indiana,Elkhart County,F18039,0,0,0,0,0,0,0,0
+Indiana,Fayette County,F18041,0,0,0,0,0,0,0,0
+Indiana,Floyd County,F18043,0,0,0,0,0,0,0,0
+Indiana,Fountain County,F18045,0,0,0,0,0,0,0,0
+Indiana,Franklin County,F18047,0,0,0,0,0,0,0,0
+Indiana,Fulton County,F18049,0,0,0,0,0,0,0,0
+Indiana,Gibson County,F18051,0,0,0,0,0,0,0,0
+Indiana,Grant County,F18053,0,0,0,0,0,0,0,0
+Indiana,Greene County,F18055,0,0,0,0,0,0,0,0
+Indiana,Hamilton County,F18057,0,0,0,0,0,0,0,0
+Indiana,Hancock County,F18059,0,0,0,0,0,0,0,0
+Indiana,Harrison County,F18061,0,0,0,0,0,0,0,0
+Indiana,Hendricks County,F18063,0,0,0,0,0,0,0,0
+Indiana,Henry County,F18065,0,0,0,0,0,0,0,0
+Indiana,Howard County,F18067,0,0,0,0,0,0,0,0
+Indiana,Huntington County,F18069,0,0,0,0,0,0,0,0
+Indiana,Jackson County,F18071,0,0,0,0,0,0,0,0
+Indiana,Jasper County,F18073,0,0,0,0,0,0,0,0
+Indiana,Jay County,F18075,0,0,0,0,0,0,0,0
+Indiana,Jefferson County,F18077,0,0,0,0,0,0,0,0
+Indiana,Jennings County,F18079,0,0,0,0,0,0,0,0
+Indiana,Johnson County,F18081,0,0,0,0,0,0,0,0
+Indiana,Knox County,F18083,0,0,0,0,0,0,0,0
+Indiana,Kosciusko County,F18085,0,0,0,0,0,0,0,0
+Indiana,LaGrange County,F18087,0,0,0,0,0,0,0,0
+Indiana,Lake County,F18089,0,0,0,0,0,0,0,0
+Indiana,LaPorte County,F18091,0,0,0,0,0,0,0,0
+Indiana,Lawrence County,F18093,0,0,0,0,0,0,0,0
+Indiana,Madison County,F18095,0,0,0,0,0,0,0,0
+Indiana,Marion County,F18097,0,0,0,0,0,0,0,0
+Indiana,Marshall County,F18099,0,0,0,0,0,0,0,0
+Indiana,Martin County,F18101,0,0,0,0,0,0,0,0
+Indiana,Miami County,F18103,0,0,0,0,0,0,0,0
+Indiana,Monroe County,F18105,0,0,0,0,0,0,0,0
+Indiana,Montgomery County,F18107,0,0,0,0,0,0,0,0
+Indiana,Morgan County,F18109,0,0,0,0,0,0,0,0
+Indiana,Newton County,F18111,0,0,0,0,0,0,0,0
+Indiana,Noble County,F18113,0,0,0,0,0,0,0,0
+Indiana,Ohio County,F18115,0,0,0,0,0,0,0,0
+Indiana,Orange County,F18117,0,0,0,0,0,0,0,0
+Indiana,Owen County,F18119,0,0,0,0,0,0,0,0
+Indiana,Parke County,F18121,0,0,0,0,0,0,0,0
+Indiana,Perry County,F18123,0,0,0,0,0,0,0,0
+Indiana,Pike County,F18125,0,0,0,0,0,0,0,0
+Indiana,Porter County,F18127,0,0,0,0,0,0,0,0
+Indiana,Posey County,F18129,0,0,0,0,0,0,0,0
+Indiana,Pulaski County,F18131,0,0,0,0,0,0,0,0
+Indiana,Putnam County,F18133,0,0,0,0,0,0,0,0
+Indiana,Randolph County,F18135,0,0,0,0,0,0,0,0
+Indiana,Ripley County,F18137,0,0,0,0,0,0,0,0
+Indiana,Rush County,F18139,0,0,0,0,0,0,0,0
+Indiana,St. Joseph County,F18141,0,0,0,0,0,0,0,0
+Indiana,Scott County,F18143,0,0,0,0,0,0,0,0
+Indiana,Shelby County,F18145,0,0,0,0,0,0,0,0
+Indiana,Spencer County,F18147,0,0,0,0,0,0,0,0
+Indiana,Starke County,F18149,0,0,0,0,0,0,0,0
+Indiana,Steuben County,F18151,0,0,0,0,0,0,0,0
+Indiana,Sullivan County,F18153,0,0,0,0,0,0,0,0
+Indiana,Switzerland County,F18155,0,0,0,0,0,0,0,0
+Indiana,Tippecanoe County,F18157,0,0,0,0,0,0,0,0
+Indiana,Tipton County,F18159,0,0,0,0,0,0,0,0
+Indiana,Union County,F18161,0,0,0,0,0,0,0,0
+Indiana,Vanderburgh County,F18163,0,0,0,0,0,0,0,0
+Indiana,Vermillion County,F18165,0,0,0,0,0,0,0,0
+Indiana,Vigo County,F18167,0,0,0,0,0,0,0,0
+Indiana,Wabash County,F18169,0,0,0,0,0,0,0,0
+Indiana,Warren County,F18171,0,0,0,0,0,0,0,0
+Indiana,Warrick County,F18173,0,0,0,0,0,0,0,0
+Indiana,Washington County,F18175,0,0,0,0,0,0,0,0
+Indiana,Wayne County,F18177,0,0,0,0,0,0,0,0
+Indiana,Wells County,F18179,0,0,0,0,0,0,0,0
+Indiana,White County,F18181,0,0,0,0,0,0,0,0
+Indiana,Whitley County,F18183,0,0,0,0,0,0,0,0
 Iowa,Adair County,F19001,10.9,7,10.9,7,9.3,6.9,7.5,6.2
 Iowa,Adams County,F19003,10.5,6.7,10.5,6.7,9,6.6,7.2,6
 Iowa,Allamakee County,F19005,11,7,11,7,9.4,6.9,7.5,6.3
@@ -1482,120 +1482,120 @@ Mississippi,Wilkinson County,F28157,8,7.1,7.6,7.1,7.6,6.1,7.5,6
 Mississippi,Winston County,F28159,8.5,7.4,8,7.4,8,6.4,7.8,5
 Mississippi,Yalobusha County,F28161,6.1,5.3,5.8,5.3,5.8,4.6,5.6,3.6
 Mississippi,Yazoo County,F28163,8.2,7,7.8,7,7.8,6,7.5,4.6
-Missouri,Adair County,F29001,,,,,,,,
-Missouri,Andrew County,F29003,,,,,,,,
-Missouri,Atchison County,F29005,4.9,,3.8,,3.8,,5.9,
-Missouri,Audrain County,F29007,,,,,,,,
-Missouri,Barry County,F29009,,,,,,,,
-Missouri,Barton County,F29011,,,,,,,,
-Missouri,Bates County,F29013,,,,,,,,
-Missouri,Benton County,F29015,,,,,,,,
-Missouri,Bollinger County,F29017,,,,,,,,
-Missouri,Boone County,F29019,,,,,,,,
-Missouri,Buchanan County,F29021,,,,,,,,
-Missouri,Butler County,F29023,,,,,,,,
-Missouri,Caldwell County,F29025,,,,,,,,
-Missouri,Callaway County,F29027,,,,,,,,
-Missouri,Camden County,F29029,,,,,,,,
-Missouri,Cape Girardeau County,F29031,,,,,,,,
-Missouri,Carroll County,F29033,,,,,,,,
-Missouri,Carter County,F29035,5.2,,4,,4,,3.5,
-Missouri,Cass County,F29037,,,,,,,,
-Missouri,Cedar County,F29039,,,,,,,,
-Missouri,Chariton County,F29041,,,,,,,,
-Missouri,Christian County,F29043,,,,,,,,
-Missouri,Clark County,F29045,,8.6,,8.6,,8.6,,4.9
-Missouri,Clay County,F29047,14.6,,11.2,,11.2,,9.8,
-Missouri,Clinton County,F29049,,,,,,,,
-Missouri,Cole County,F29051,,,,,,,,
-Missouri,Cooper County,F29053,,,,,,,,
-Missouri,Crawford County,F29055,,,,,,,,
-Missouri,Dade County,F29057,15.4,,12,,12,,10.5,
-Missouri,Dallas County,F29059,,,,,,,,
-Missouri,Daviess County,F29061,,,,,,,,
-Missouri,DeKalb County,F29063,4.1,,3.1,,3.1,,2.7,
-Missouri,Dent County,F29065,,,,,,,,
-Missouri,Douglas County,F29067,,,,,,,,
-Missouri,Dunklin County,F29069,,,,,,,,
-Missouri,Franklin County,F29071,,,,,,,,
-Missouri,Gasconade County,F29073,10,,7.5,,7.5,,6.6,
-Missouri,Gentry County,F29075,6.7,,5.1,,5.1,,4.5,
-Missouri,Greene County,F29077,12.4,,11.7,,11.7,,10.2,
-Missouri,Grundy County,F29079,,,,,,,,
-Missouri,Harrison County,F29081,,,,,,,,
-Missouri,Henry County,F29083,,,,,,,,
-Missouri,Hickory County,F29085,,,,,,,,
-Missouri,Holt County,F29087,,,,,,,,
-Missouri,Howard County,F29089,,,,,,,,
-Missouri,Howell County,F29091,,,,,,,,
-Missouri,Iron County,F29093,,,,,,,,
+Missouri,Adair County,F29001,0,0,0,0,0,0,0,0
+Missouri,Andrew County,F29003,0,0,0,0,0,0,0,0
+Missouri,Atchison County,F29005,4.9,0,3.8,0,3.8,0,5.9,0
+Missouri,Audrain County,F29007,0,0,0,0,0,0,0,0
+Missouri,Barry County,F29009,0,0,0,0,0,0,0,0
+Missouri,Barton County,F29011,0,0,0,0,0,0,0,0
+Missouri,Bates County,F29013,0,0,0,0,0,0,0,0
+Missouri,Benton County,F29015,0,0,0,0,0,0,0,0
+Missouri,Bollinger County,F29017,0,0,0,0,0,0,0,0
+Missouri,Boone County,F29019,0,0,0,0,0,0,0,0
+Missouri,Buchanan County,F29021,0,0,0,0,0,0,0,0
+Missouri,Butler County,F29023,0,0,0,0,0,0,0,0
+Missouri,Caldwell County,F29025,0,0,0,0,0,0,0,0
+Missouri,Callaway County,F29027,0,0,0,0,0,0,0,0
+Missouri,Camden County,F29029,0,0,0,0,0,0,0,0
+Missouri,Cape Girardeau County,F29031,0,0,0,0,0,0,0,0
+Missouri,Carroll County,F29033,0,0,0,0,0,0,0,0
+Missouri,Carter County,F29035,5.2,0,4,0,4,0,3.5,0
+Missouri,Cass County,F29037,0,0,0,0,0,0,0,0
+Missouri,Cedar County,F29039,0,0,0,0,0,0,0,0
+Missouri,Chariton County,F29041,0,0,0,0,0,0,0,0
+Missouri,Christian County,F29043,0,0,0,0,0,0,0,0
+Missouri,Clark County,F29045,0,8.6,0,8.6,0,8.6,0,4.9
+Missouri,Clay County,F29047,14.6,0,11.2,0,11.2,0,9.8,0
+Missouri,Clinton County,F29049,0,0,0,0,0,0,0,0
+Missouri,Cole County,F29051,0,0,0,0,0,0,0,0
+Missouri,Cooper County,F29053,0,0,0,0,0,0,0,0
+Missouri,Crawford County,F29055,0,0,0,0,0,0,0,0
+Missouri,Dade County,F29057,15.4,0,12,0,12,0,10.5,0
+Missouri,Dallas County,F29059,0,0,0,0,0,0,0,0
+Missouri,Daviess County,F29061,0,0,0,0,0,0,0,0
+Missouri,DeKalb County,F29063,4.1,0,3.1,0,3.1,0,2.7,0
+Missouri,Dent County,F29065,0,0,0,0,0,0,0,0
+Missouri,Douglas County,F29067,0,0,0,0,0,0,0,0
+Missouri,Dunklin County,F29069,0,0,0,0,0,0,0,0
+Missouri,Franklin County,F29071,0,0,0,0,0,0,0,0
+Missouri,Gasconade County,F29073,10,0,7.5,0,7.5,0,6.6,0
+Missouri,Gentry County,F29075,6.7,0,5.1,0,5.1,0,4.5,0
+Missouri,Greene County,F29077,12.4,0,11.7,0,11.7,0,10.2,0
+Missouri,Grundy County,F29079,0,0,0,0,0,0,0,0
+Missouri,Harrison County,F29081,0,0,0,0,0,0,0,0
+Missouri,Henry County,F29083,0,0,0,0,0,0,0,0
+Missouri,Hickory County,F29085,0,0,0,0,0,0,0,0
+Missouri,Holt County,F29087,0,0,0,0,0,0,0,0
+Missouri,Howard County,F29089,0,0,0,0,0,0,0,0
+Missouri,Howell County,F29091,0,0,0,0,0,0,0,0
+Missouri,Iron County,F29093,0,0,0,0,0,0,0,0
 Missouri,Jackson County,F29095,16,9.8,11.8,8.8,11.8,8.8,9.3,9.1
-Missouri,Jasper County,F29097,,,,,,,,
-Missouri,Jefferson County,F29099,14.2,,10.9,,10.9,,10.3,
-Missouri,Johnson County,F29101,,,,,,,,
-Missouri,Knox County,F29103,,,,,,,,
-Missouri,Laclede County,F29105,,,,,,,,
-Missouri,Lafayette County,F29107,,,,,,,,
-Missouri,Lawrence County,F29109,,,,,,,,
-Missouri,Lewis County,F29111,,,,,,,,
-Missouri,Lincoln County,F29113,,,,,,,,
-Missouri,Linn County,F29115,,,,,,,,
-Missouri,Livingston County,F29117,,,,,,,,
-Missouri,McDonald County,F29119,,,,,,,,
-Missouri,Macon County,F29121,,,,,,,,
-Missouri,Madison County,F29123,,,,,,,,
-Missouri,Maries County,F29125,,,,,,,,
-Missouri,Marion County,F29127,,,,,,,,
-Missouri,Mercer County,F29129,2.4,,1.9,,1.9,,1.7,
-Missouri,Miller County,F29131,,,,,,,,
-Missouri,Mississippi County,F29133,,,,,,,,
-Missouri,Moniteau County,F29135,,,,,,,,
-Missouri,Monroe County,F29137,,,,,,,,
-Missouri,Montgomery County,F29139,,,,,,,,
-Missouri,Morgan County,F29141,,,,,,,,
-Missouri,New Madrid County,F29143,,,,,,,,
-Missouri,Newton County,F29145,,,,,,,,
-Missouri,Nodaway County,F29147,,,,,,,,
-Missouri,Oregon County,F29149,,,,,,,,
-Missouri,Osage County,F29151,,,,,,,,
-Missouri,Ozark County,F29153,,,,,,,,
-Missouri,Pemiscot County,F29155,,,,,,,,
-Missouri,Perry County,F29157,,,,,,,,
-Missouri,Pettis County,F29159,,,,,,,,
-Missouri,Phelps County,F29161,,,,,,,,
-Missouri,Pike County,F29163,,,,,,,,
-Missouri,Platte County,F29165,,,,,,,,
-Missouri,Polk County,F29167,,,,,,,,
-Missouri,Pulaski County,F29169,,,,,,,,
-Missouri,Putnam County,F29171,,,,,,,,
-Missouri,Ralls County,F29173,,,,,,,,
-Missouri,Randolph County,F29175,,,,,,,,
-Missouri,Ray County,F29177,,,,,,,,
-Missouri,Reynolds County,F29179,,,,,,,,
-Missouri,Ripley County,F29181,,,,,,,,
-Missouri,St. Charles County,F29183,11.6,,9.1,,9.1,,8.2,
-Missouri,St. Clair County,F29185,,7.9,,6.6,,6.6,,6.4
-Missouri,Ste. Genevieve County,F29186,,,,,,,,
-Missouri,St. Francois County,F29187,,,,,,,,
-Missouri,St. Louis County,F29189,16.7,,13.1,,13.1,,11.1,
-Missouri,Saline County,F29195,,,,,,,,
-Missouri,Schuyler County,F29197,,,,,,,,
-Missouri,Scotland County,F29199,,,,,,,,
-Missouri,Scott County,F29201,,,,,,,,
-Missouri,Shannon County,F29203,,,,,,,,
-Missouri,Shelby County,F29205,,,,,,,,
-Missouri,Stoddard County,F29207,,,,,,,,
-Missouri,Stone County,F29209,,,,,,,,
-Missouri,Sullivan County,F29211,,,,,,,,
-Missouri,Taney County,F29213,,,,,,,,
-Missouri,Texas County,F29215,,,,,,,,
-Missouri,Vernon County,F29217,,,,,,,,
-Missouri,Warren County,F29219,,,,,,,,
-Missouri,Washington County,F29221,,,,,,,,
-Missouri,Wayne County,F29223,,,,,,,,
-Missouri,Webster County,F29225,,8.9,,8,,8,,7.8
-Missouri,Worth County,F29227,8.1,,6.3,,6.3,,5.5,
-Missouri,Wright County,F29229,,,,,,,,
+Missouri,Jasper County,F29097,0,0,0,0,0,0,0,0
+Missouri,Jefferson County,F29099,14.2,0,10.9,0,10.9,0,10.3,0
+Missouri,Johnson County,F29101,0,0,0,0,0,0,0,0
+Missouri,Knox County,F29103,0,0,0,0,0,0,0,0
+Missouri,Laclede County,F29105,0,0,0,0,0,0,0,0
+Missouri,Lafayette County,F29107,0,0,0,0,0,0,0,0
+Missouri,Lawrence County,F29109,0,0,0,0,0,0,0,0
+Missouri,Lewis County,F29111,0,0,0,0,0,0,0,0
+Missouri,Lincoln County,F29113,0,0,0,0,0,0,0,0
+Missouri,Linn County,F29115,0,0,0,0,0,0,0,0
+Missouri,Livingston County,F29117,0,0,0,0,0,0,0,0
+Missouri,McDonald County,F29119,0,0,0,0,0,0,0,0
+Missouri,Macon County,F29121,0,0,0,0,0,0,0,0
+Missouri,Madison County,F29123,0,0,0,0,0,0,0,0
+Missouri,Maries County,F29125,0,0,0,0,0,0,0,0
+Missouri,Marion County,F29127,0,0,0,0,0,0,0,0
+Missouri,Mercer County,F29129,2.4,0,1.9,0,1.9,0,1.7,0
+Missouri,Miller County,F29131,0,0,0,0,0,0,0,0
+Missouri,Mississippi County,F29133,0,0,0,0,0,0,0,0
+Missouri,Moniteau County,F29135,0,0,0,0,0,0,0,0
+Missouri,Monroe County,F29137,0,0,0,0,0,0,0,0
+Missouri,Montgomery County,F29139,0,0,0,0,0,0,0,0
+Missouri,Morgan County,F29141,0,0,0,0,0,0,0,0
+Missouri,New Madrid County,F29143,0,0,0,0,0,0,0,0
+Missouri,Newton County,F29145,0,0,0,0,0,0,0,0
+Missouri,Nodaway County,F29147,0,0,0,0,0,0,0,0
+Missouri,Oregon County,F29149,0,0,0,0,0,0,0,0
+Missouri,Osage County,F29151,0,0,0,0,0,0,0,0
+Missouri,Ozark County,F29153,0,0,0,0,0,0,0,0
+Missouri,Pemiscot County,F29155,0,0,0,0,0,0,0,0
+Missouri,Perry County,F29157,0,0,0,0,0,0,0,0
+Missouri,Pettis County,F29159,0,0,0,0,0,0,0,0
+Missouri,Phelps County,F29161,0,0,0,0,0,0,0,0
+Missouri,Pike County,F29163,0,0,0,0,0,0,0,0
+Missouri,Platte County,F29165,0,0,0,0,0,0,0,0
+Missouri,Polk County,F29167,0,0,0,0,0,0,0,0
+Missouri,Pulaski County,F29169,0,0,0,0,0,0,0,0
+Missouri,Putnam County,F29171,0,0,0,0,0,0,0,0
+Missouri,Ralls County,F29173,0,0,0,0,0,0,0,0
+Missouri,Randolph County,F29175,0,0,0,0,0,0,0,0
+Missouri,Ray County,F29177,0,0,0,0,0,0,0,0
+Missouri,Reynolds County,F29179,0,0,0,0,0,0,0,0
+Missouri,Ripley County,F29181,0,0,0,0,0,0,0,0
+Missouri,St. Charles County,F29183,11.6,0,9.1,0,9.1,0,8.2,0
+Missouri,St. Clair County,F29185,0,7.9,0,6.6,0,6.6,0,6.4
+Missouri,Ste. Genevieve County,F29186,0,0,0,0,0,0,0,0
+Missouri,St. Francois County,F29187,0,0,0,0,0,0,0,0
+Missouri,St. Louis County,F29189,16.7,0,13.1,0,13.1,0,11.1,0
+Missouri,Saline County,F29195,0,0,0,0,0,0,0,0
+Missouri,Schuyler County,F29197,0,0,0,0,0,0,0,0
+Missouri,Scotland County,F29199,0,0,0,0,0,0,0,0
+Missouri,Scott County,F29201,0,0,0,0,0,0,0,0
+Missouri,Shannon County,F29203,0,0,0,0,0,0,0,0
+Missouri,Shelby County,F29205,0,0,0,0,0,0,0,0
+Missouri,Stoddard County,F29207,0,0,0,0,0,0,0,0
+Missouri,Stone County,F29209,0,0,0,0,0,0,0,0
+Missouri,Sullivan County,F29211,0,0,0,0,0,0,0,0
+Missouri,Taney County,F29213,0,0,0,0,0,0,0,0
+Missouri,Texas County,F29215,0,0,0,0,0,0,0,0
+Missouri,Vernon County,F29217,0,0,0,0,0,0,0,0
+Missouri,Warren County,F29219,0,0,0,0,0,0,0,0
+Missouri,Washington County,F29221,0,0,0,0,0,0,0,0
+Missouri,Wayne County,F29223,0,0,0,0,0,0,0,0
+Missouri,Webster County,F29225,0,8.9,0,8,0,8,0,7.8
+Missouri,Worth County,F29227,8.1,0,6.3,0,6.3,0,5.5,0
+Missouri,Wright County,F29229,0,0,0,0,0,0,0,0
 Missouri,St. Louis city,F29510,21.4,14.8,15.3,13.1,15.3,13.1,11.5,16
 Montana,Beaverhead County,F30001,11.3,8.7,9.9,8.1,9.9,8.1,9.9,8.1
 Montana,Big Horn County,F30003,14.7,11.1,12.9,10.3,12.9,10.3,12.9,10.3
@@ -1750,18 +1750,18 @@ Nevada,Churchill County,F32001,13.2,10.2,13.2,10.2,13.2,9.8,11.3,8.1
 Nevada,Clark County,F32003,19.4,14.6,19.4,14.6,16.3,16.2,13.8,14.7
 Nevada,Douglas County,F32005,14.5,11.7,12.1,11,12.1,10.3,10.9,10.2
 Nevada,Elko County,F32007,8.5,10.2,8.5,10.2,11.9,9.6,10.8,9.5
-Nevada,Esmeralda County,F32009,,,,,,,,
-Nevada,Eureka County,F32011,10.6,,10.6,,10.6,,9.3,
-Nevada,Humboldt County,F32013,5.1,,5.1,,5.1,,4.7,
-Nevada,Lander County,F32015,4.5,,4.5,,4.5,,4.2,
-Nevada,Lincoln County,F32017,,,,,,,,
+Nevada,Esmeralda County,F32009,0,0,0,0,0,0,0,0
+Nevada,Eureka County,F32011,10.6,0,10.6,0,10.6,0,9.3,0
+Nevada,Humboldt County,F32013,5.1,0,5.1,0,5.1,0,4.7,0
+Nevada,Lander County,F32015,4.5,0,4.5,0,4.5,0,4.2,0
+Nevada,Lincoln County,F32017,0,0,0,0,0,0,0,0
 Nevada,Lyon County,F32019,14.2,13.5,12.4,13.5,12.4,12.7,8.7,12.6
-Nevada,Mineral County,F32021,8.9,,8.9,,8.9,,8.2,
+Nevada,Mineral County,F32021,8.9,0,8.9,0,8.9,0,8.2,0
 Nevada,Nye County,F32023,17,12,17,12,17.3,11.5,10.7,9.6
-Nevada,Pershing County,F32027,16.2,,16.2,,16.2,,14.3,
-Nevada,Storey County,F32029,13.8,,13.8,,13.8,,12.1,
+Nevada,Pershing County,F32027,16.2,0,16.2,0,16.2,0,14.3,0
+Nevada,Storey County,F32029,13.8,0,13.8,0,13.8,0,12.1,0
 Nevada,Washoe County,F32031,17.5,12.8,17.5,12.8,14.2,12.8,11.6,11.5
-Nevada,White Pine County,F32033,5.6,,5.6,,5.6,,5.2,
+Nevada,White Pine County,F32033,5.6,0,5.6,0,5.6,0,5.2,0
 Nevada,Carson City,F32510,15.1,14.8,15.1,14,12.3,14,11.1,13.8
 New Hampshire,Belknap County,F33001,13.1,9.7,12.1,9.7,10.8,9.7,10.5,9.7
 New Hampshire,Carroll County,F33003,15.2,11.2,14.1,11.2,12.6,11.2,12.1,11.2
@@ -1794,39 +1794,39 @@ New Jersey,Somerset County,F34035,11.6,7.9,10.3,7.7,9.3,7.7,9.4,6
 New Jersey,Sussex County,F34037,12.2,10.2,11.5,9.3,10.6,9.3,9.8,8.3
 New Jersey,Union County,F34039,15.6,9,13.4,9.1,11,8.3,12.4,6
 New Jersey,Warren County,F34041,13,8.4,12.7,8.6,11.2,6.6,9.1,7.1
-New Mexico,Bernalillo County,F35001,,,,,,,,
-New Mexico,Catron County,F35003,,,,,,,,
-New Mexico,Chaves County,F35005,,,,,,,,
-New Mexico,Cibola County,F35006,,,,,,,,
-New Mexico,Colfax County,F35007,,,,,,,,
-New Mexico,Curry County,F35009,,,,,,,,
-New Mexico,De Baca County,F35011,,,,,,,,
-New Mexico,Doña Ana County,F35013,,,,,,,,
-New Mexico,Eddy County,F35015,,,,,,,,
-New Mexico,Grant County,F35017,,,,,,,,
-New Mexico,Guadalupe County,F35019,,,,,,,,
-New Mexico,Harding County,F35021,,,,,,,,
-New Mexico,Hidalgo County,F35023,,,,,,,,
-New Mexico,Lea County,F35025,,,,,,,,
-New Mexico,Lincoln County,F35027,,,,,,,,
-New Mexico,Los Alamos County,F35028,,,,,,,,
-New Mexico,Luna County,F35029,,,,,,,,
-New Mexico,McKinley County,F35031,,,,,,,,
-New Mexico,Mora County,F35033,,,,,,,,
-New Mexico,Otero County,F35035,,,,,,,,
-New Mexico,Quay County,F35037,,,,,,,,
-New Mexico,Rio Arriba County,F35039,,,,,,,,
-New Mexico,Roosevelt County,F35041,,,,,,,,
-New Mexico,Sandoval County,F35043,,,,,,,,
-New Mexico,San Juan County,F35045,,,,,,,,
-New Mexico,San Miguel County,F35047,,,,,,,,
-New Mexico,Santa Fe County,F35049,,,,,,,,
-New Mexico,Sierra County,F35051,,,,,,,,
-New Mexico,Socorro County,F35053,,,,,,,,
-New Mexico,Taos County,F35055,,,,,,,,
-New Mexico,Torrance County,F35057,,,,,,,,
-New Mexico,Union County,F35059,,,,,,,,
-New Mexico,Valencia County,F35061,,,,,,,,
+New Mexico,Bernalillo County,F35001,0,0,0,0,0,0,0,0
+New Mexico,Catron County,F35003,0,0,0,0,0,0,0,0
+New Mexico,Chaves County,F35005,0,0,0,0,0,0,0,0
+New Mexico,Cibola County,F35006,0,0,0,0,0,0,0,0
+New Mexico,Colfax County,F35007,0,0,0,0,0,0,0,0
+New Mexico,Curry County,F35009,0,0,0,0,0,0,0,0
+New Mexico,De Baca County,F35011,0,0,0,0,0,0,0,0
+New Mexico,Doña Ana County,F35013,0,0,0,0,0,0,0,0
+New Mexico,Eddy County,F35015,0,0,0,0,0,0,0,0
+New Mexico,Grant County,F35017,0,0,0,0,0,0,0,0
+New Mexico,Guadalupe County,F35019,0,0,0,0,0,0,0,0
+New Mexico,Harding County,F35021,0,0,0,0,0,0,0,0
+New Mexico,Hidalgo County,F35023,0,0,0,0,0,0,0,0
+New Mexico,Lea County,F35025,0,0,0,0,0,0,0,0
+New Mexico,Lincoln County,F35027,0,0,0,0,0,0,0,0
+New Mexico,Los Alamos County,F35028,0,0,0,0,0,0,0,0
+New Mexico,Luna County,F35029,0,0,0,0,0,0,0,0
+New Mexico,McKinley County,F35031,0,0,0,0,0,0,0,0
+New Mexico,Mora County,F35033,0,0,0,0,0,0,0,0
+New Mexico,Otero County,F35035,0,0,0,0,0,0,0,0
+New Mexico,Quay County,F35037,0,0,0,0,0,0,0,0
+New Mexico,Rio Arriba County,F35039,0,0,0,0,0,0,0,0
+New Mexico,Roosevelt County,F35041,0,0,0,0,0,0,0,0
+New Mexico,Sandoval County,F35043,0,0,0,0,0,0,0,0
+New Mexico,San Juan County,F35045,0,0,0,0,0,0,0,0
+New Mexico,San Miguel County,F35047,0,0,0,0,0,0,0,0
+New Mexico,Santa Fe County,F35049,0,0,0,0,0,0,0,0
+New Mexico,Sierra County,F35051,0,0,0,0,0,0,0,0
+New Mexico,Socorro County,F35053,0,0,0,0,0,0,0,0
+New Mexico,Taos County,F35055,0,0,0,0,0,0,0,0
+New Mexico,Torrance County,F35057,0,0,0,0,0,0,0,0
+New Mexico,Union County,F35059,0,0,0,0,0,0,0,0
+New Mexico,Valencia County,F35061,0,0,0,0,0,0,0,0
 New York,Albany County,F36001,15.7,12.4,14.7,11.6,13.9,11,12.8,11
 New York,Allegany County,F36003,18,13.1,16.9,12.3,16,12.3,14.7,12.3
 New York,Bronx County,F36005,47,23,36.5,22.5,33.5,21.3,27.3,19.5
@@ -1905,7 +1905,7 @@ North Carolina,Cabarrus County,F37025,15.8,9.7,12.4,9,10.7,8.4,8.3,10.1
 North Carolina,Caldwell County,F37027,14.8,12.9,12.4,11.7,10.5,12.3,8.1,9.2
 North Carolina,Camden County,F37029,11.9,10,11.5,9.8,5.7,8.7,4.4,10.8
 North Carolina,Carteret County,F37031,13.2,11.4,9.9,9.5,9.9,9.5,7.6,9.5
-North Carolina,Caswell County,F37033,16.2,,11.3,,9.3,,7.2,
+North Carolina,Caswell County,F37033,16.2,0,11.3,0,9.3,0,7.2,0
 North Carolina,Catawba County,F37035,13.3,12.5,11.9,10.8,9.1,10.6,7.1,10.8
 North Carolina,Chatham County,F37037,13.2,9.7,10.8,8.9,9.7,8.1,7.5,7.1
 North Carolina,Cherokee County,F37039,19.1,11.8,12.6,10.5,8.5,10.5,6.6,9
@@ -1926,7 +1926,7 @@ North Carolina,Forsyth County,F37067,14.8,13.2,12.4,12,11,10.8,8.5,10.1
 North Carolina,Franklin County,F37069,14.3,11.4,12.3,11.3,11.1,11.1,8.5,7.8
 North Carolina,Gaston County,F37071,14.2,12.3,12.6,12.4,10.2,11.9,7.8,10.6
 North Carolina,Gates County,F37073,16.1,10,10.6,8.8,7.2,8.8,5.5,7.6
-North Carolina,Graham County,F37075,,,,,,,,
+North Carolina,Graham County,F37075,0,0,0,0,0,0,0,0
 North Carolina,Granville County,F37077,13.9,10.3,12.7,10.3,9.3,9.9,7.1,9.9
 North Carolina,Greene County,F37079,12.5,12.5,11.5,11,11.5,11,8.9,11
 North Carolina,Guilford County,F37081,15.8,12,14.1,11.2,10.6,11.2,8.2,9.6
@@ -3066,12 +3066,12 @@ Wisconsin,Dunn County,F55033,16.2,10.3,15.5,9.9,15.5,9.9,11.7,9.6
 Wisconsin,Eau Claire County,F55035,15.3,11.3,14.1,10.3,14.1,10.3,11.7,10.3
 Wisconsin,Florence County,F55037,12.3,13.4,12.3,11.7,12.3,11.7,9,11.7
 Wisconsin,Fond du Lac County,F55039,14.7,10.6,13.4,10.2,13.4,10.2,10.6,7.4
-Wisconsin,Forest County,F55041,,14.9,,12.9,,12.9,,12.9
+Wisconsin,Forest County,F55041,0,14.9,0,12.9,0,12.9,0,12.9
 Wisconsin,Grant County,F55043,11.6,9.3,11.6,8.7,11.6,8.7,10.8,6.9
 Wisconsin,Green County,F55045,13.8,10.8,13.1,9.4,13.1,9.4,10.1,9.8
 Wisconsin,Green Lake County,F55047,15.8,11.3,14.5,10,14.5,10,12.4,10
 Wisconsin,Iowa County,F55049,11.3,9.3,10.7,8.7,10.7,8.7,10,8.7
-Wisconsin,Iron County,F55051,,,,,,,,
+Wisconsin,Iron County,F55051,0,0,0,0,0,0,0,0
 Wisconsin,Jackson County,F55053,13.8,11.6,12,10.5,12,10.5,10.8,10.1
 Wisconsin,Jefferson County,F55055,14.9,13.2,12.2,11.1,12.2,11.1,9.9,10.4
 Wisconsin,Juneau County,F55057,13.3,11.7,10.8,10.8,10.8,10.8,10.8,7.9
@@ -3085,7 +3085,7 @@ Wisconsin,Manitowoc County,F55071,14.1,10,13.9,8.9,13.9,8.9,12.6,8.9
 Wisconsin,Marathon County,F55073,15.8,10.5,13.6,10.5,13.6,10.5,11.6,9.4
 Wisconsin,Marinette County,F55075,13.7,12.9,12.9,10.2,12.9,10.2,11.5,12.9
 Wisconsin,Marquette County,F55077,17.2,11.6,15.1,9.9,15.1,9.9,12.9,9.9
-Wisconsin,Menominee County,F55078,,18.2,,15.9,,15.9,,15.9
+Wisconsin,Menominee County,F55078,0,18.2,0,15.9,0,15.9,0,15.9
 Wisconsin,Milwaukee County,F55079,26,20,23.4,17.5,23.4,17.5,17.1,15
 Wisconsin,Monroe County,F55081,11.4,10,10.9,9.7,10.9,9.7,9.6,9.7
 Wisconsin,Oconto County,F55083,8,10,7.4,10,7.4,10,7.4,9.6
