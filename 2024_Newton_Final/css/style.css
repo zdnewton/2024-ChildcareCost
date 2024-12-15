@@ -104,51 +104,200 @@ option {
     line-height: 1em;
 }
 
-
 /* Styles for the home button */
 .home-button rect {
-    fill: #fff;
-    stroke: #000;
-    stroke-width: 1;
-    rx: 5; /* rounded corners */
-    ry: 5;
+    fill: #EA4C89;
+    border-radius: 8px;
+    stroke: none; /* Use stroke for border */
+    box-sizing: border-box;
+    color: #be0000;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 30px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms, transform 100ms, box-shadow 100ms, fill 100ms, stroke 100ms; /* Add stroke transition */
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
 }
 
-.home-button text {
+.home-button:hover rect,
+.Y2018-button:hover rect,
+.Y2023-button:hover rect {
+    fill: #d43d6e; /* Darker shade on hover */
+    stroke: black; /* Add black border on hover */
+    stroke-width: 1px; /* Set border width */
+}
+
+.home-button:active rect,
+.Y2018-button:active rect,
+.Y2023-button:active rect {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
+    fill: #b32b55; /* Even darker shade on click */
+    transform: translateY(2px) scale(0.98); /* Combine movement and scale down */
+}
+
+.home-button text,
+.Y2018-button text,
+.Y2023-button text {
     font-size: 14px;
-    fill: #000;
+    fill: #FFFFFF;
     text-anchor: middle;
+    pointer-events: none;
 }
 
 /* Styles for the 2018 button */
 .Y2018-button rect {
-    fill: #fff;
-    stroke: #000;
-    stroke-width: 1;
-    rx: 5; /* rounded corners */
-    ry: 5;
-}
-
-.Y2018-button text {
+    fill: #EA4C89;
+    border-radius: 8px;
+    stroke: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
-    fill: #000;
-    text-anchor: middle;
+    font-weight: 500;
+    height: 30px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms, transform 100ms, box-shadow 100ms, fill 100ms, stroke 100ms; /* Add stroke transition */
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
 }
 
 /* Styles for the 2023 button */
 .Y2023-button rect {
-    fill: #fff;
-    stroke: #000;
-    stroke-width: 1;
-    rx: 5; /* rounded corners */
-    ry: 5;
+    fill: #EA4C89;
+    border-radius: 8px;
+    stroke: none; /* Use stroke for border */
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 30px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms, transform 100ms, box-shadow 100ms, fill 100ms, stroke 100ms; /* Add stroke transition */
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
 }
 
-.Y2023-button text {
-    font-size: 14px;
-    fill: #000;
-    text-anchor: middle;
+/* Ensure buttons are clickable */
+.home-button, .flip-switch {
+    pointer-events: auto;
 }
+
+/* Default state for the map */
+.map {
+    pointer-events: auto;
+}
+
+/* Styles for the dropdown container */
+.dropdown-container {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: 200px;
+    height: 80px;
+    overflow: hidden;
+}
+
+/* Background rectangle for the dropdown container */
+.dropdown-background {
+    width: 300px;
+    height: 80px;
+    fill: #f0f0f0;
+    stroke: #EA4C89;
+    stroke-width: 1px;
+    rx: 10px; /* Rounded corners */
+    ry: 10px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
+    transition:  1s linear; /* Add transition for smooth expansion */
+}
+
+/* Expanded state */
+.dropdown-container.expanded .dropdown-background {
+    width: 400px; /* Adjust as needed */
+}
+
+/* Button to toggle expansion */
+.expand-button {
+    width: 30px;
+    height: 30px;
+    background-color: #EA4C89;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+}
+
+/* Dropdown menu styling */
+.dropdown {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 200px;
+    height: 40px;
+    font-family: sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 2px;
+    border: 1px solid #999;
+    box-shadow: 2px 2px 4px #999;
+}
+
+/* Attribute description text box styling */
+.attribute-description {
+    width: 200px;
+    height: 30px;
+    font-family: sans-serif;
+    font-size: 12px;
+    color: #333;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #999;
+    box-shadow: 2px 2px 4px #999;
+}
+
+
+
 
 .tgl {
     display: none;
@@ -157,7 +306,6 @@ option {
     &,
     &:after,
     &:before,
-    & *,
     & *:after,
     & *:before,
     & + .tgl-btn {
