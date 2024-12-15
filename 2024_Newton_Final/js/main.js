@@ -108,7 +108,7 @@ var projection = d3.geoConicEqualArea()
         currentTransform = transform; // Update currentTransform with the new transform
         g.attr("transform", currentTransform);
         g.attr("stroke-width", 1 / currentTransform.k);
-        console.log("Current transform during zoom:", currentTransform);
+        //console.log("Current transform during zoom:", currentTransform);
     }
 
     //Add the home button
