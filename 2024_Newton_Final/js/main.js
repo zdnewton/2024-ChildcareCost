@@ -109,6 +109,8 @@ function setMap(year) {
         setChart(csv, colorScale);
     
         createDropdown(svg, csv);
+
+        
     };
 
     // Zoom function
@@ -123,7 +125,7 @@ function setMap(year) {
     //Add the home button
     addHomeButton(svg, zoom);
     //Add 2018 Year Button
-    add2018Button(svg);
+    add2018Button(svg, g);
     //Add 2023 Year Button
     add2023Button(svg);    
 
@@ -182,7 +184,7 @@ function add2018Button(svg) {
     // Add click event to switch data to 2018
     buttonGroup.on("click", function(event) {
         event.stopPropagation(); // Prevent click propagation
-        changeyear2018();
+        changeyear2018(svg);
     });
 
     // Prevent click propagation for other events
@@ -211,7 +213,7 @@ function add2023Button(svg) {
     // Add click event to switch data to 2023
     buttonGroup.on("click", function(event) {
         event.stopPropagation(); // Prevent click propagation
-        changeyear2023();
+        changeyear2023(svg);
     });
 
     // Prevent click propagation when interacting with map
@@ -713,12 +715,16 @@ function clicked(event, d, svg, path, zoom, width, height) {
 }; //End of clicked function
 
 //Functions to enable switching between years
-function changeyear2018() {
+function changeyear2018(svg) {
     var year = "2018";
-    //setMap(year)  Created duplication
+    d3.selectAll(".map").remove()
+    d3.selectAll(".chart").remove()
+    setMap(year)
 };
-function changeyear2023() {
+function changeyear2023(svg) {
     var year = "2023";
-    //setMap(year)  Created duplication
+    d3.selectAll(".map").remove()
+    d3.selectAll(".chart").remove()
+    setMap(year)
 };
 })();
