@@ -429,19 +429,24 @@ function setChart(csv, colorScale){
 }; //End of setChart function
 
 function createDropdown(svg, csv) {
+    var margin = 10;
     // Create a group for the dropdown and text box
     var containerGroup = svg.append("g")
         .attr("class", "dropdown-container")
-        .attr("transform", "translate(10, " + (svg.attr("height") - 100) + ")");
+        .attr("transform", "translate(" + margin + ", " + (svg.attr("height") - margin - 60) + ")");
 
     // Add a rectangle as the background
     var backgroundRect = containerGroup.append("rect")
-        .attr("class", "dropdown-background");
+        .attr("class", "dropdown-background")
+        .attr("width", 200) //  width
+        .attr("height", 80) // Adjust height as needed
+        .attr("rx", 10) // Rounded corners
+        .attr("ry", 10);
 
-    // Add the dropdown menu
+    // Controls the dropdown menu
     var dropdown = containerGroup.append("foreignObject")
-        .attr("width", 300)
-        .attr("height", 30)
+        .attr("width", 200)
+        .attr("height", 40)
         .attr("x", 10)
         .attr("y", 10)
         .append("xhtml:select")
@@ -465,66 +470,78 @@ function createDropdown(svg, csv) {
         .attr("value", function(d) { return d; })
         .text(function(d) { return d.replace(/_/g, " "); });
 
-    // Add a text box for the description
-    containerGroup.append("foreignObject")
-        .attr("width", 200)
+    // Text box for the description
+    var description = containerGroup.append("foreignObject")
+        .attr("width", 225)
         .attr("height", 30)
-        .attr("x", 10)
-        .attr("y", 50)
+        .attr("x", 220) // Position to the right of the dropdown
+        .attr("y", 10)
+        .attr("class", "attribute-description hidden") // Initially hidden
         .append("xhtml:div")
-        .attr("class", "attribute-description")
-        .style("font-family", "sans-serif")
-        .style("font-size", "12px")
         .style("color", "#333")
         .text("Select an attribute to see the description.");
 
-    // Add the expand button
+    // The information box expand button
     var expandButtonContainer = containerGroup.append("foreignObject")
         .attr("class", "expand-button-container")
-        .attr("width", 30)
-        .attr("height", 30)
-        .attr("x", 300) // Initial position based on container width
-        .attr("y", 25) // Center vertically within the container
+        .attr("width", 15)
+        .attr("height", 60)
+        .attr("x", 215) // Button lined up to edge of rectangle
+        .attr("y", 0) // Center vertically within the container
         .append("xhtml:button")
         .attr("class", "expand-button")
-        .style("width", "30px")
-        .style("height", "30px")
         .style("background-color", "#EA4C89")
-        .style("border", "none")
-        .style("border-radius", "0 10px 10px 0")
         .style("cursor", "pointer")
         .style("color", "#fff")
-        .style("font-size", "16px")
-        .style("line-height", "30px")
-        .style("text-align", "center")
+        .style("font-size", "12px")
+        .style("text-align", "left")
         .text(">")
         .on("click", function() {
             var container = d3.select(".dropdown-container");
             var isExpanded = container.classed("expanded");
             container.classed("expanded", !isExpanded);
-            d3.select(this)
-            .text(isExpanded ? ">" : "<");
+            d3.select(this).text(isExpanded ? ">" : "<");
         
-            // Update button position based on expanded state
-            var newX = isExpanded ? 300 : 400; // Adjust based on expanded width
+            // Update button position and container width based on expanded state
+            var newX = isExpanded ? 215 : 590;
+            var newWidth = isExpanded ? 200 : 800; // Adjust container width
             d3.select(this.parentNode)
               .transition()
               .duration(1000)
               .ease(d3.easeLinear)
               .attr("x", newX);
+            d3.select(".dropdown-background")
+              .transition()
+              .duration(1000)
+              .ease(d3.easeLinear)
+              .attr("width", newWidth);
+        
+            // Show or hide the attribute description with a delay
+            if (isExpanded) {
+                d3.select(".attribute-description")
+                  .attr("transition-style", "out:wipe:left"); // Add transition style for wipe-out
+                setTimeout(function() {
+                    d3.select(".attribute-description")
+                      .classed("hidden", true);
+                }, 2500); // Delay to match the animation duration (2.5s)
+            } else {
+                d3.select(".attribute-description")
+                  .classed("hidden", false)
+                  .attr("transition-style", "in:wipe:right"); // Add transition style for wipe-in
+            }
         });
 }
 
 function updateDescription(attribute) {
     var descriptions = {
-        "Infant Center": "Description for Infant Center",
-        "Infant Home": "Description for Infant Home",
-        "Toddler Center": "Description for Toddler Center",
-        "Toddler Home": "Description for Toddler Home",
-        "PreSchool Center": "Description for PreSchool Center",
-        "PreSchool Home": "Description for PreSchool Home",
-        "School Age Center": "Description for School Age Center",
-        "School Age Home": "Description for School Age Home"
+        "Infant Center": "The percentage of household income spent on center-based care for infants.\nThis includes costs for daycare centers or similar facilities that provide care for infants.",
+        "Infant Home": "The percentage of household income spent on home-based care for infants.\nThis includes costs for nannies, babysitters, or family members providing care at home.",
+        "Toddler Center": "The percentage of household income spent on center-based care for toddlers.\nThis includes costs for daycare centers or similar facilities that provide care for toddlers.",
+        "Toddler Home": "The percentage of household income spent on home-based care for toddlers.\nThis includes costs for nannies, babysitters, or family members providing care at home.",
+        "PreSchool Center": "The percentage of household income spent on center-based care for preschool-aged children.\nThis includes costs for preschools or similar facilities that provide care and early education for preschoolers.",
+        "PreSchool Home": "The percentage of household income spent on home-based care for preschool-aged children.\nThis includes costs for nannies, babysitters, or family members providing care at home.",
+        "School Age Center": "The percentage of household income spent on center-based care for school-aged children.\nThis includes costs for after-school programs, daycare centers, or similar facilities that provide care for school-aged children.",
+        "School Age Home": "The percentage of household income spent on home-based care for school-aged children.\nThis includes costs for nannies, babysitters, or family members providing care at home."
     };
 
     d3.select(".attribute-description")
