@@ -4,6 +4,7 @@
 var attrArray = ["Infant Center", "Infant Home", "Toddler Center", "Toddler Home","PreSchool Center","PreSchool Home", "School Age Center", "School Age Home"]; //list of attributes
 var expressed = attrArray[0]; //initial attribute
 var domainArray = [];
+var year = "2023";
 //console.log(expressed)
 
 //chart frame dimensions
@@ -22,9 +23,9 @@ var yScale = d3.scaleLinear()
                .domain([0, 40]);
 
 //begin script when window loads
-window.onload = setMap();
+window.onload = setMap(year);
 
-function setMap() {
+function setMap(year) {
     // Initialize zoom behavior
     var zoom = d3.zoom()
     .scaleExtent([1, 8])
@@ -83,11 +84,18 @@ function setMap() {
             .attr("class", "countries")
             .attr("d", path);
     
+        if (year == "2023"){
+            var csv = csv2023Data;
+        } else if (year == "2018"){
+            var csv = csv2018Data;
+        };
+        console.log("Displayed Year: " + year)
+
         // Join CSV data to GeoJSON enumeration units
-        var counties = joinData(usCounties, csv2023Data);
+        var counties = joinData(usCounties, csv);
     
         // Create the color scale
-        var colorScale = makeColorScale(csv2023Data);
+        var colorScale = makeColorScale(csv);
     
         // Add enumeration units to the map
         setEnumerationUnits(counties, g, path, colorScale, svg, zoom, width, height);
@@ -98,9 +106,9 @@ function setMap() {
             .attr("d", path);
     
         // Add coordinated visualization
-        setChart(csv2023Data, colorScale);
+        setChart(csv, colorScale);
     
-        createDropdown(svg, csv2023Data);
+        createDropdown(svg, csv);
     };
 
     // Zoom function
@@ -174,7 +182,7 @@ function add2018Button(svg) {
     // Add click event to switch data to 2018
     buttonGroup.on("click", function(event) {
         event.stopPropagation(); // Prevent click propagation
-        // Your code to switch data to 2018
+        changeyear2018();
     });
 
     // Prevent click propagation for other events
@@ -203,7 +211,7 @@ function add2023Button(svg) {
     // Add click event to switch data to 2023
     buttonGroup.on("click", function(event) {
         event.stopPropagation(); // Prevent click propagation
-        // Your code to switch data to 2023
+        changeyear2023();
     });
 
     // Prevent click propagation when interacting with map
@@ -704,4 +712,13 @@ function clicked(event, d, svg, path, zoom, width, height) {
     console.log("clicked finished running");
 }; //End of clicked function
 
+//Functions to enable switching between years
+function changeyear2018() {
+    var year = "2018";
+    //setMap(year)  Created duplication
+};
+function changeyear2023() {
+    var year = "2023";
+    //setMap(year)  Created duplication
+};
 })();

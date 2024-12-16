@@ -5,7 +5,7 @@
    var domainArray = [];
    //var data = [];
    var promises = [];
-   var year = "2018";
+   var year = "2023";
    console.log(expressed)
    
     //chart frame dimensions
@@ -24,15 +24,15 @@
     .domain([0, 40]);
 
 //begin script when window loads
-window.onload = setMap();
+window.onload = setMap(year);
 
-    function setMap() {
+    function setMap(year) {
         // Initialize zoom behavior
         var zoom = d3.zoom()
         .scaleExtent([1, 8])
         .on("zoom", zoomed);
 
-    var width = window.innerWidth * .5, height = 460;
+    var width = window.innerWidth*.9, height = window.innerHeight*.9;
 
     //create new svg container for the map
     var svg = d3.select("body")
@@ -64,7 +64,7 @@ window.onload = setMap();
     promises.push(d3.json("data/Countries.topojson")); //load background spatial data
     promises.push(d3.json("data/States.topojson"));
     Promise.all(promises).then(callback);
-
+    
     function callback(data) {
         var csv2018Data = data[0],
             csv2023Data = data[1],
@@ -108,9 +108,9 @@ window.onload = setMap();
         .attr("d", path);
 
         //add coordinated visualization
-        setChart(csv, colorScale);
+        //setChart(csv, colorScale);
         
-        createDropdown(csv);
+        createDropdown(svg,csv);
     };
 
     // Zoom function
@@ -199,7 +199,7 @@ function add2023Button(svg) {
 
     // Add click event to switch data to 2023
     buttonGroup.on("click", function() {
-        //window.open("about.html")
+        changeyear2023()
     });
 }
 
@@ -259,7 +259,7 @@ function joinData(counties,csv){
                 //console.log(geojsonKey)
                 //assign all attributes and values
                 attrArray.forEach(function(attr){
-                    console.log(parseFloat(csvCounty[attr]));
+                    //console.log(parseFloat(csvCounty[attr]));
                     var val =  parseFloat(csvCounty[attr]); //get csv attribute value
                     geojsonProps[attr] = val; //assign attribute and value to geojson properties
                     
@@ -342,7 +342,7 @@ function makeColorScale(data){
     return colorScale;
 
 };
-
+/*
 //function to create coordinated bar chart
 function setChart(csv, colorScale){
    
@@ -418,30 +418,96 @@ function setChart(csv, colorScale){
         .attr("height", chartInnerHeight)
         .attr("transform", translate);
 };
+
+*/
 //function to create a dropdown menu for attribute selection
-function createDropdown(csv){
-    //add select element
-    var dropdown = d3.select("body")
-        .append("select")
+function createDropdown(svg, csv) {
+    // Create a group for the dropdown and text box
+    var containerGroup = svg.append("g")
+        .attr("class", "dropdown-container")
+        .attr("transform", "translate(10, " + (svg.attr("height") - 100) + ")");
+
+    // Add a rectangle as the background
+    var backgroundRect = containerGroup.append("rect")
+        .attr("class", "dropdown-background");
+
+    // Add the dropdown menu
+    var dropdown = containerGroup.append("foreignObject")
+        .attr("width", 300)
+        .attr("height", 30)
+        .attr("x", 10)
+        .attr("y", 10)
+        .append("xhtml:select")
         .attr("class", "dropdown")
-        .on("change", function(){
-            changeAttribute(this.value, csv)
+        .on("change", function() {
+            changeAttribute(this.value, csv);
+            updateDescription(this.value);
         });
 
-    //add initial option
-    var titleOption = dropdown.append("option")
+    // Add initial option
+    dropdown.append("option")
         .attr("class", "titleOption")
         .attr("disabled", "true")
         .text("Select Attribute");
 
-    //add attribute name options
-    var attrOptions = dropdown.selectAll("attrOptions")
+    // Add attribute name options
+    dropdown.selectAll("attrOptions")
         .data(attrArray)
         .enter()
         .append("option")
-        .attr("value", function(d){ return d })
-        .text(function(d){ return d.replace(/_/g, " ") });
-};
+        .attr("value", function(d) { return d; })
+        .text(function(d) { return d.replace(/_/g, " "); });
+
+    // Add a text box for the description
+    containerGroup.append("foreignObject")
+        .attr("width", 200)
+        .attr("height", 30)
+        .attr("x", 10)
+        .attr("y", 50)
+        .append("xhtml:div")
+        .attr("class", "attribute-description")
+        .style("font-family", "sans-serif")
+        .style("font-size", "12px")
+        .style("color", "#333")
+        .text("Select an attribute to see the description.");
+
+    // Add the expand button
+    var expandButtonContainer = containerGroup.append("foreignObject")
+        .attr("class", "expand-button-container")
+        .attr("width", 30)
+        .attr("height", 30)
+        .attr("x", 300) // Initial position based on container width
+        .attr("y", 25) // Center vertically within the container
+        .append("xhtml:button")
+        .attr("class", "expand-button")
+        .style("width", "30px")
+        .style("height", "30px")
+        .style("background-color", "#EA4C89")
+        .style("border", "none")
+        .style("border-radius", "0 10px 10px 0")
+        .style("cursor", "pointer")
+        .style("color", "#fff")
+        .style("font-size", "16px")
+        .style("line-height", "30px")
+        .style("text-align", "center")
+        .text(">")
+        .on("click", function() {
+            var container = d3.select(".dropdown-container");
+            var isExpanded = container.classed("expanded");
+            container.classed("expanded", !isExpanded);
+            d3.select(this)
+            .text(isExpanded ? ">" : "<");
+        
+            // Update button position based on expanded state
+            var newX = isExpanded ? 300 : 400; // Adjust based on expanded width
+            d3.select(this.parentNode)
+              .transition()
+              .duration(1000)
+              .ease(d3.easeLinear)
+              .attr("x", newX);
+        });
+}
+
 function changeAttribute(attribute, csv) {
     //change the expressed attribute
     expressed = attribute;
@@ -599,6 +665,11 @@ function clicked(event, d, svg, path, zoom, width, height) {
 }
 
 function changeyear2018() {
-
+    var year = "2018";
+    setMap(year)
+}
+function changeyear2023() {
+    var year = "2023";
+    setMap(year)
 }
 })();
