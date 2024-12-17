@@ -5,10 +5,9 @@ var attrArray = ["Infant Center", "Infant Home", "Toddler Center", "Toddler Home
 var expressed = attrArray[0]; //initial attribute
 var domainArray = [];
 var year = "2023";
-//console.log(expressed)
 
 //chart frame dimensions
-var chartWidth = window.innerWidth * .45,
+var chartWidth = window.innerWidth * 0.45,
 chartHeight = 473,
 leftPadding = 25,
 rightPadding = 2,
@@ -17,7 +16,7 @@ chartInnerWidth = chartWidth - leftPadding - rightPadding,
 chartInnerHeight = chartHeight - topBottomPadding * 2,
 translate = "translate(" + leftPadding + "," + topBottomPadding + ")";
 
-//create a scale to size bars proportionally to frame and for axis
+//Scale to size bars proportionally to frame and for axis
 var yScale = d3.scaleLinear()
                .range([463, 0])
                .domain([0, 40]);
@@ -33,7 +32,7 @@ function setMap(year) {
 
     var width = window.innerWidth * .5, height = 460;
 
-    //create new svg container for the map
+    //SVG container for the map
     var svg = d3.select("body")
         .append("svg")
         .attr("class", "map")
@@ -105,22 +104,23 @@ function setMap(year) {
             .attr("class", "States")
             .attr("d", path);
     
-        // Add coordinated visualization
+
         setChart(csv, colorScale);
     
         createDropdown(svg, csv);
 
+        createLegend(svg, colorScale, csv);
+
         
     };
 
-    // Zoom function
+    // Zoom behavior function
     function zoomed(event) {
         const { transform } = event;
         currentTransform = transform; // Update currentTransform with the new transform
         g.attr("transform", currentTransform);
         g.attr("stroke-width", 1 / currentTransform.k);
-        //console.log("Current transform during zoom:", currentTransform);
-    }
+    };
 
     //Add the home button
     addHomeButton(svg, zoom);
@@ -128,10 +128,7 @@ function setMap(year) {
     add2018Button(svg, g);
     //Add 2023 Year Button
     add2023Button(svg);    
-    //Add About Button
-    addAboutButton(svg);
-    //addFlipSwitch(svg);
-}; // End of setMap function
+};
 
 function addHomeButton(svg, zoom) {
     // Create a group for the button
@@ -157,35 +154,6 @@ function addHomeButton(svg, zoom) {
             zoom.transform,
             d3.zoomIdentity
         );
-    });
-
-    // Prevent click propagation for other events
-    buttonGroup.on("mousedown", function(event) { event.stopPropagation(); });
-    buttonGroup.on("mouseup", function(event) { event.stopPropagation(); });
-    buttonGroup.on("dblclick", function(event) { event.stopPropagation(); });
-}
-
-function addAboutButton(svg) {
-    // Create a group for the button
-    var buttonGroup = svg.append("g")
-        .attr("class", "about-button")
-        .attr("transform", "translate(10, 130)");
-
-    // Create a rectangle for the button background
-    buttonGroup.append("rect")
-        .attr("width", 50)
-        .attr("height", 30);
-
-    // Add text to the button
-    buttonGroup.append("text")
-        .attr("x", 25)
-        .attr("y", 20)
-        .text("About");
-
-    // Add click event to switch data to 2018
-    buttonGroup.on("click", function(event) {
-        event.stopPropagation(); // Prevent click propagation
-        window.open("about.html")
     });
 
     // Prevent click propagation for other events
@@ -251,24 +219,6 @@ function add2023Button(svg) {
     buttonGroup.on("mouseup", function(event) { event.stopPropagation(); });
     buttonGroup.on("dblclick", function(event) { event.stopPropagation(); });
 }
-
-// What are your thoughts on doing this instead, a little more fun
-function addFlipSwitch(svg) {
-    // Create a group for the flip switch
-    var switchGroup = svg.append("g")
-        .attr("class", "flip-switch")
-        .attr("transform", `translate(${svg.attr("width") - 70}, ${svg.attr("height") - 40})`);
-
-    // Create the flip switch input
-    switchGroup.append("foreignObject")
-        .attr("width", 60)
-        .attr("height", 30)
-        .append("xhtml:div")
-        .html(`
-            <input class="tgl tgl-flip" id="cb5" type="checkbox"/>
-            <label class="tgl-btn" data-tg-off="2018" data-tg-on="2023" for="cb5"></label>
-        `);
-} // end of addFlipSwitch function
 
 function setGraticule(map, path){
     //create graticule generator
@@ -351,8 +301,7 @@ function setEnumerationUnits(usCounties, map, path, colorScale, svg, zoom, width
         });
 }; //End of setEnumerationUnits function
 
-//function to create color scale generator
-function makeColorScale(data){
+function makeColorScale(data) {
     var colorClasses = [
         "#f1eef6",
         "#d7b5d8",
@@ -361,112 +310,183 @@ function makeColorScale(data){
         "#980043"
     ];
 
-    //create color scale generator
     var colorScale = d3.scaleThreshold()
-    .range(colorClasses);
+        .range(colorClasses);
 
-    //build array of all values of the expressed attribute
-    var domainArray = [];
-    for (var i=0; i<data.length; i++){
-    var val = parseFloat(data[i][expressed]);
-    
-    //removes 0 or no data values before calculating the breaks
-    if (val == 0){
-    } else {
-        domainArray.push(val);
-    }
-    };
+    var domainArray = data.map(d => parseFloat(d[expressed])).filter(val => !isNaN(val) && val !== 0);
 
-    //cluster data using ckmeans clustering algorithm to create natural breaks
-    var clusters = ss.ckmeans(domainArray, 5);
-    //reset domain array to cluster minimums
-    domainArray = clusters.map(function(d){
-    return d3.min(d);
-    });
-    //remove first value from domain array to create class breakpoints
-    domainArray.shift();
+    // Calculate the true minimum and maximum values
+    var minValue = d3.min(domainArray);
+    var maxValue = d3.max(domainArray);
 
-    //assign array of expressed values as scale domain
-    colorScale.domain(domainArray);
+    // Use ckmeans clustering to create breaks
+    var clusters = ss.ckmeans(domainArray, colorClasses.length);
+    var clusterDomain = clusters.map(d => d3.min(d));
+    clusterDomain.shift(); // Remove the first value to match the number of color classes
+
+    // Debugging: Log the domain values
+    console.log("Color scale domain values:", clusterDomain);
+
+    colorScale.domain(clusterDomain);
     return colorScale;
+}
 
-}; //End of makeColorScale function
+function createLegend(svg, colorScale, data) {
+    var legendWidth = 20;
+    var legendHeight = 200;
+    var legendMargin = { bottom: 20, right: 50 }; // Update margins for bottom right positioning
+
+    var legendSvg = svg.append("g")
+        .attr("class", "legend")
+        .attr("transform", `translate(${svg.attr("width") - legendWidth - legendMargin.right}, ${svg.attr("height") - legendHeight - legendMargin.bottom})`);
+
+    var domain = colorScale.domain();
+    var range = colorScale.range().reverse(); // Reverse the color range
+    var blockHeight = legendHeight / range.length;
+
+    // Calculate the true minimum and maximum values, excluding 0
+    var domainArray = data.map(d => parseFloat(d[expressed])).filter(val => !isNaN(val) && val !== 0);
+    var minValue = d3.min(domainArray);
+    var maxValue = d3.max(domainArray);
+
+    // Find the county with the maximum value
+    var maxCounty = data.find(d => parseFloat(d[expressed]) === maxValue);
+    var minCounty = data.find(d => parseFloat(d[expressed]) === minValue);
+
+    // Debugging: Log the true minimum and maximum values and the county with the maximum value
+    console.log("True minimum value (excluding 0):", minValue);
+    console.log("True maximum value:", maxValue);
+    console.log("County with maximum value:", maxCounty);
+    console.log("County with minimum value:", minCounty);
+
+    // Create the legend blocks
+    range.forEach((color, i) => {
+        legendSvg.append("rect")
+            .attr("x", 0)
+            .attr("y", i * blockHeight)
+            .attr("width", legendWidth)
+            .attr("height", blockHeight)
+            .style("fill", color);
+    });
+
+    // Create a linear scale for the legend that maps domain values to evenly spaced positions
+    var legendScale = d3.scaleLinear()
+        .domain([0, range.length])
+        .range([legendHeight, 0]);
+
+    // Use the color scale's domain values for the tick marks
+    var tickValues = [minValue, ...domain, maxValue];
+    var legendAxis = d3.axisRight(legendScale)
+        .tickValues(d3.range(0, range.length + 1))
+        .tickFormat((d, i) => d3.format(".2f")(tickValues[i]));
+
+    legendSvg.append("g")
+        .attr("class", "legend-axis")
+        .attr("transform", `translate(${legendWidth}, 0)`)
+        .call(legendAxis);
+}
 
 //function to create coordinated bar chart
-function setChart(csv, colorScale){
-   
-    //create a second svg element to hold the bar chart
+function setChart(csv, colorScale) {
+    // Create a second svg element to hold the bar chart
     var chart = d3.select("body")
         .append("svg")
         .attr("width", chartWidth)
         .attr("height", chartHeight)
-        .attr("class", "chart");
+        .attr("class", "chart")
+        .call(zoom); // Call the zoom behavior
 
-    //create a rectangle for chart background fill
+    // Create a rectangle for chart background fill
     var chartBackground = chart.append("rect")
         .attr("class", "chartBackground")
         .attr("width", chartInnerWidth)
         .attr("height", chartInnerHeight)
         .attr("transform", translate);
 
-    //set bars for each province
+    // Create horizontal scale
+    var x = d3.scaleBand()
+        .domain(d3.range(csv.length))
+        .range([leftPadding, chartInnerWidth + leftPadding])
+        .padding(0); // Remove the gaps between bars
+
+    // Create vertical axis generator
+    var yAxis = d3.axisLeft()
+        .scale(yScale)
+        .tickSize(-chartInnerWidth); // Extend ticks across the chart
+
+    // Place y-axis grid lines
+    var axis = chart.append("g")
+        .attr("class", "axis")
+        .attr("transform", translate)
+        .call(yAxis)
+        .call(g => g.select(".domain").remove()); // Remove the y-axis line
+
+    // Set bars for each county
     var bars = chart.selectAll(".bars")
         .data(csv)
         .enter()
         .append("rect")
-        .sort(function(a, b){
-            return b[expressed]-a[expressed]
+        .sort(function(a, b) {
+            return b[expressed] - a[expressed];
         })
-        .attr("class", function(d){
+        .attr("class", function(d) {
             return "bar " + d.FIPS2;
         })
-        .attr("width", (chartInnerWidth / (csv.length-300)))
-        .attr("x", function(d, i){
-            return i * (chartInnerWidth / (csv.length-300)) + leftPadding;
+        .attr("width", x.bandwidth())
+        .attr("x", function(d, i) {
+            return x(i);
         })
-        .attr("height", function(d, i){
+        .attr("height", function(d, i) {
             return 463 - yScale(parseFloat(d[expressed]));
         })
-        .attr("y", function(d, i){
+        .attr("y", function(d, i) {
             return yScale(parseFloat(d[expressed])) + topBottomPadding;
         })
-        .style("fill", function(d){
+        .style("fill", function(d) {
             return colorScale(d[expressed]);
         })
-        .on("mouseover", function(event, d){
+        .style("stroke", "none") // Remove any stroke
+        .on("mouseover", function(event, d) {
             highlight(d);
         })
-        .on("mouseout", function(event, d){
-            d3.select(".infolabel")
-            .remove();
+        .on("mouseout", function(event, d) {
+            d3.select(".infolabel").remove();
             dehighlight(d);
         })
-        .on("mousemove", moveLabel); 
+        .on("mousemove", moveLabel);
 
-    //create a text element for the chart title
+    // Create a text element for the chart title
     var chartTitle = chart.append("text")
         .attr("x", 40)
         .attr("y", 40)
         .attr("class", "chartTitle")
         .text(expressed.replace(/_/g, " "));
 
-    //create vertical axis generator
-    var yAxis = d3.axisLeft()
-        .scale(yScale);
-
-    //place axis
-    var axis = chart.append("g")
-        .attr("class", "axis")
-        .attr("transform", translate)
-        .call(yAxis);
-
-    //create frame for chart border
+    // Create frame for chart border
     var chartFrame = chart.append("rect")
         .attr("class", "chartFrame")
         .attr("width", chartInnerWidth)
         .attr("height", chartInnerHeight)
         .attr("transform", translate);
-}; //End of setChart function
+
+    // Zoom function
+    function zoom(svg) {
+        const extent = [[leftPadding, topBottomPadding], [chartInnerWidth + leftPadding, chartInnerHeight + topBottomPadding]];
+
+        svg.call(d3.zoom()
+            .scaleExtent([1, Infinity]) // Remove the maximum zoom limit
+            .translateExtent(extent)
+            .extent(extent)
+            .on("zoom", zoomed));
+
+        function zoomed(event) {
+            x.range([leftPadding, chartInnerWidth + leftPadding].map(d => event.transform.applyX(d)));
+            svg.selectAll(".bar")
+                .attr("x", (d, i) => x(i))
+                .attr("width", x.bandwidth());
+        }
+    }
+}
 
 function createDropdown(svg, csv) {
     var margin = 10;
@@ -589,62 +609,64 @@ function updateDescription(attribute) {
 }
 
 function changeAttribute(attribute, csv) {
-    //change the expressed attribute
+    // Change the expressed attribute
     expressed = attribute;
 
-    //recreate the color scale
+    // Recreate the color scale
     var colorScale = makeColorScale(csv);
 
-    //recolor enumeration units
+    // Recolor enumeration units
     var county = d3.selectAll(".county")
-    .transition()
-    .duration(1000)
-    .style("fill", function (d) {
-        var value = d.properties[expressed];
-        if (value) {
-            return colorScale(d.properties[expressed]);
-        } else {
-            return "#ccc";
-        }
-    });
-    //Sort, resize, and recolor bars
-    var bars = d3.selectAll(".bar")
-    //Sort bars
-    .sort(function(a, b){
-        return b[expressed] - a[expressed];
-    })
-    .transition()
-    .delay(function(d,i){
-        return i
-    })
-    .duration(500)
-    .attr("x", function(d, i){
-        return i * (chartInnerWidth / (csv.length-300)) + leftPadding;
-    })
-    //resize bars
-    .attr("height", function(d, i){
-        return 463 - yScale(parseFloat(d[expressed]));
-    })
-    .attr("y", function(d, i){
-        return yScale(parseFloat(d[expressed])) + topBottomPadding;
-    })
-    //recolor bars
-    .style("fill", function(d){            
-        var value = d[expressed];            
-        if(value) {                
-            return colorScale(value);            
-        } else {                
-            return "#ccc";            
-        }    
-    });
-    updateChart(bars, csv.length, colorScale);
-}; //End of changeAttribute function
+        .transition()
+        .duration(1000)
+        .style("fill", function (d) {
+            var value = d.properties[expressed];
+            if (value) {
+                return colorScale(d.properties[expressed]);
+            } else {
+                return "#ccc";
+            }
+        });
 
+    // Sort, resize, and recolor bars
+    var bars = d3.selectAll(".bar")
+        .sort(function(a, b) {
+            return b[expressed] - a[expressed];
+        })
+        .transition()
+        .delay(function(d, i) {
+            return i;
+        })
+        .duration(500)
+        .attr("x", function(d, i) {
+            return i * (chartInnerWidth / csv.length) + leftPadding;
+        })
+        .attr("height", function(d, i) {
+            return 463 - yScale(parseFloat(d[expressed]));
+        })
+        .attr("y", function(d, i) {
+            return yScale(parseFloat(d[expressed])) + topBottomPadding;
+        })
+        .style("fill", function(d) {
+            var value = d[expressed];
+            if (value) {
+                return colorScale(value);
+            } else {
+                return "#ccc";
+            }
+        });
+    updateChart(bars, csv.length, colorScale);
+
+    // Update the legend with the new color scale and data
+    d3.select(".legend").remove(); // Remove the old legend
+    createLegend(d3.select("svg"), colorScale, csv); // Add the new legend
+    
+}; 
 //function to position, size, and color bars in chart
 function updateChart(bars, n, colorScale){
     //position bars
     bars.attr("x", function(d, i){
-        return i * (chartInnerWidth / (csv.length-300)) + leftPadding;
+        return i * (chartInnerWidth / n) + leftPadding;
     })
     //size/resize bars
     .attr("height", function(d, i){
@@ -664,7 +686,7 @@ function updateChart(bars, n, colorScale){
     });
     var chartTitle = d3.select(".chartTitle")
     .text(expressed.replace(/_/g, " "));
-}; //End of updateChart function
+};
 
 //function to highlight enumeration units and bars
 function highlight(props){
@@ -674,14 +696,14 @@ function highlight(props){
         .style("stroke-width", "2");
     setLabel(props)
     //console.log(props)
-}; //End of highlight function
+};
 
 //function to reset the element style on mouseout
 function dehighlight(props){
     var selected = d3.selectAll("." + props.FIPS2)
         .style("stroke", "black")
         .style("stroke-width", 0);
-}; //End of dehighlight function
+};
 
 //function to create dynamic label
 function setLabel(props){
@@ -703,7 +725,7 @@ function setLabel(props){
     var regionName = infolabel.append("div")
         .attr("class", "labelname")
         .html(props.name);
-}; //End of setlabel function
+};
 
 function moveLabel(event){
     //get width of label
@@ -726,7 +748,7 @@ function moveLabel(event){
     d3.select(".infolabel")
         .style("left", x + "px")
         .style("top", y + "px");
-}; //End of moveLabel function
+};
 
 // This function runs to zoom in on the county clicked on.
 function clicked(event, d, svg, path, zoom, width, height) {
@@ -742,7 +764,7 @@ function clicked(event, d, svg, path, zoom, width, height) {
         d3.pointer(event, svg.node())
     );
     console.log("clicked finished running");
-}; //End of clicked function
+};
 
 //Functions to enable switching between years
 function changeyear2018(svg) {
