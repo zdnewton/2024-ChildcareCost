@@ -8,7 +8,7 @@ var year = "2023";
 //console.log(expressed)
 
 //chart frame dimensions
-var chartWidth = window.innerWidth * 0.45,
+var chartWidth = window.innerWidth * .45,
 chartHeight = 473,
 leftPadding = 25,
 rightPadding = 2,
@@ -128,8 +128,9 @@ function setMap(year) {
     add2018Button(svg, g);
     //Add 2023 Year Button
     add2023Button(svg);    
-
-    addFlipSwitch(svg);
+    //Add About Button
+    addAboutButton(svg);
+    //addFlipSwitch(svg);
 }; // End of setMap function
 
 function addHomeButton(svg, zoom) {
@@ -156,6 +157,35 @@ function addHomeButton(svg, zoom) {
             zoom.transform,
             d3.zoomIdentity
         );
+    });
+
+    // Prevent click propagation for other events
+    buttonGroup.on("mousedown", function(event) { event.stopPropagation(); });
+    buttonGroup.on("mouseup", function(event) { event.stopPropagation(); });
+    buttonGroup.on("dblclick", function(event) { event.stopPropagation(); });
+}
+
+function addAboutButton(svg) {
+    // Create a group for the button
+    var buttonGroup = svg.append("g")
+        .attr("class", "about-button")
+        .attr("transform", "translate(10, 130)");
+
+    // Create a rectangle for the button background
+    buttonGroup.append("rect")
+        .attr("width", 50)
+        .attr("height", 30);
+
+    // Add text to the button
+    buttonGroup.append("text")
+        .attr("x", 25)
+        .attr("y", 20)
+        .text("About");
+
+    // Add click event to switch data to 2018
+    buttonGroup.on("click", function(event) {
+        event.stopPropagation(); // Prevent click propagation
+        window.open("about.html")
     });
 
     // Prevent click propagation for other events
@@ -390,9 +420,9 @@ function setChart(csv, colorScale){
         .attr("class", function(d){
             return "bar " + d.FIPS2;
         })
-        .attr("width", (chartInnerWidth / csv.length))
+        .attr("width", (chartInnerWidth / (csv.length-300)))
         .attr("x", function(d, i){
-            return i * (chartInnerWidth / csv.length) + leftPadding;
+            return i * (chartInnerWidth / (csv.length-300)) + leftPadding;
         })
         .attr("height", function(d, i){
             return 463 - yScale(parseFloat(d[expressed]));
@@ -589,7 +619,7 @@ function changeAttribute(attribute, csv) {
     })
     .duration(500)
     .attr("x", function(d, i){
-        return i * (chartInnerWidth / csv.length) + leftPadding;
+        return i * (chartInnerWidth / (csv.length-300)) + leftPadding;
     })
     //resize bars
     .attr("height", function(d, i){
@@ -614,7 +644,7 @@ function changeAttribute(attribute, csv) {
 function updateChart(bars, n, colorScale){
     //position bars
     bars.attr("x", function(d, i){
-        return i * (chartInnerWidth / n) + leftPadding;
+        return i * (chartInnerWidth / (csv.length-300)) + leftPadding;
     })
     //size/resize bars
     .attr("height", function(d, i){
