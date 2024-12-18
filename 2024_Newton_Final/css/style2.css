@@ -1,0 +1,99 @@
+/***** NAVBAR *****/
+
+.navbar {
+    background-color: #EA4C89;
+    border-radius: 0;
+}
+
+/* Navbar title */
+.navbar-default .navbar-brand {
+    color: rgb(0, 0, 0);
+    font-size: px;
+    font-weight: bold;
+}
+
+/* Navbar hover effects */
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #670380;
+    text-decoration: none;
+}
+
+/* Navbar links */
+.navbar-default .navbar-nav > li > a {
+    color: #0a0a0a;
+    font-size: 16px;
+    padding: 10px;
+}
+
+/* Navbar collapsed styles */
+.navbar-toggler {
+    color: #fff;
+    border-color: #fff;
+    background-color: #863ee3;
+    border-radius: 4px;
+    border: 1px solid;
+    fill: #fff;
+    font-size: 16px;
+    position: relative;
+    margin-right: 10px;
+}
+
+.navbar-toggler:hover,
+.navbar-toggler:focus {
+    background-color: #ebd122;
+    color: #242424;
+    fill: #242424;
+    border-color: #fff;
+
+}
+
+
+.img-responsive{
+    width:100%;
+}
+
+/*** CARD ***/
+
+.card {
+    background-color: #fff;
+    border-color: #cccccc;
+    border-width: 1px;
+    width: 100%;
+}
+
+.card:hover {
+    border-color: #ebd122;
+}
+
+/*** Basic Text Styles ***/
+
+hr {
+    border-color: white;
+    border-width: 2px;
+}
+
+p {
+    font-size: 16px;
+}
+
+a {
+    color: #863ee3;
+}
+
+a:hover {
+    color: #ebd122;
+}
+
+.container{
+    padding:25px 0;
+}
+
+body {
+
+    font-family: 'Georgia', serif;
+    background-color: #e0d5f5;
+    color: #242424;
+}

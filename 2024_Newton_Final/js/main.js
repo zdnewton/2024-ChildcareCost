@@ -111,6 +111,16 @@ function setMap(year) {
 
         createLegend(svg, colorScale, csv);
 
+            //Add Title
+            svg.append("text")
+            .attr("class", "map-title")
+            .attr("x", width *.86)
+            .attr("y", 30) // Adjust the y-coordinate as needed
+            .attr("text-anchor", "middle")
+            .style("font-size", "1.5em") // Adjust font size as needed
+            .style("font-family", "san-serif")
+            .style("font-weight","bold")
+            .text("Child Care Cost-" + year);
         
     };
 
@@ -124,6 +134,8 @@ function setMap(year) {
 
     //Add the home button
     addHomeButton(svg, zoom);
+    //Add About Button
+    addAboutButton(svg);
     //Add 2018 Year Button
     add2018Button(svg, g);
     //Add 2023 Year Button
@@ -162,6 +174,34 @@ function addHomeButton(svg, zoom) {
     buttonGroup.on("dblclick", function(event) { event.stopPropagation(); });
 }
 
+function addAboutButton(svg) {
+    // Create a group for the button
+    var buttonGroup = svg.append("g")
+        .attr("class", "about-button")
+        .attr("transform", "translate(10, 130)");
+
+    // Create a rectangle for the button background
+    buttonGroup.append("rect")
+        .attr("width", 50)
+        .attr("height", 30);
+
+    // Add text to the button
+    buttonGroup.append("text")
+        .attr("x", 25)
+        .attr("y", 20)
+        .text("About");
+
+    // Add click event to switch data to 2018
+    buttonGroup.on("click", function(event) {
+        event.stopPropagation(); // Prevent click propagation
+        window.open("about.html","_self")
+    });
+
+    // Prevent click propagation for other events
+    buttonGroup.on("mousedown", function(event) { event.stopPropagation(); });
+    buttonGroup.on("mouseup", function(event) { event.stopPropagation(); });
+    buttonGroup.on("dblclick", function(event) { event.stopPropagation(); });
+}
 function add2018Button(svg) {
     // Create a group for the button
     var buttonGroup = svg.append("g")
